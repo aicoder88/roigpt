@@ -81,6 +81,7 @@ export function useStaggeredAnimations(
       const timer = setTimeout(playAll, 100);
       return () => clearTimeout(timer);
     }
+    return undefined;
   }, []);
 
   return {
