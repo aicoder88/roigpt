@@ -39,11 +39,13 @@
     --popover: 222 84% 4.9%;
     --popover-foreground: 210 40% 98%;
     --primary: 217 91% 60%;
-    --primary-foreground: 222 84% 4.9%;
+    /* Ensure primary buttons and elements keep high-contrast text in dark mode */
+    --primary-foreground: 0 0% 98%;
     --secondary: 217 32% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217 32% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Slightly brighter muted text for readability on glass surfaces */
+    --muted-foreground: 210 20% 80%;
     --accent: 280 100% 70%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
@@ -64,23 +66,27 @@
     @apply border-border;
   }
   
-  html {
-    @apply dark;
-  }
-  
   body {
-    @apply bg-gradient-to-br from-background via-background to-primary/5 text-foreground;
+    /* Base text color + subtle blended background */
+    @apply text-foreground;
+    background-image:
+      radial-gradient(650px 350px at 0% 0%, hsl(var(--primary)/0.10), transparent 40%),
+      radial-gradient(700px 400px at 100% 0%, hsl(var(--accent)/0.08), transparent 45%),
+      radial-gradient(600px 300px at 100% 100%, hsl(var(--primary)/0.08), transparent 40%),
+      radial-gradient(600px 300px at 0% 100%, hsl(var(--accent)/0.10), transparent 40%),
+      linear-gradient(to bottom right, hsl(var(--background)), hsl(var(--background)));
+    background-attachment: fixed;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
 @layer components {
   .glass {
-    @apply backdrop-blur-xl bg-white/10 dark:bg-white/5 border border-white/20 dark:border-white/10;
+    @apply backdrop-blur-xl bg-white/10 dark:bg-white/10 border border-white/25 dark:border-white/20;
   }
   
   .glass-card {
-    @apply glass rounded-2xl shadow-2xl shadow-primary/10 dark:shadow-primary/20;
+    @apply glass rounded-2xl shadow-2xl shadow-primary/10 dark:shadow-primary/25;
   }
   
   .gradient-text {

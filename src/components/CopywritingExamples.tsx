@@ -26,7 +26,7 @@ interface CopywriterExample {
 
 const CopywritingExamples = () => {
   const { t } = useLanguage();
-  const [selectedTab, setSelectedTab] = useState("hormozi");
+  const [selectedTab, setSelectedTab] = useState("all");
 
   const copywriters: Record<string, CopywriterExample> = {
     hormozi: {
@@ -81,13 +81,19 @@ const CopywritingExamples = () => {
 
       <div className="container mx-auto px-4 relative">
         <Tabs
-          defaultValue="hormozi"
+          defaultValue="all"
           value={selectedTab}
           onValueChange={setSelectedTab}
           className="w-full"
         >
           <div className="flex justify-center mb-12">
-            <TabsList className="grid grid-cols-2 md:grid-cols-5 gap-2 glass-card p-2 bg-background/50">
+            <TabsList className="grid grid-cols-2 md:grid-cols-6 gap-2 glass-card p-2 bg-background/50">
+              <TabsTrigger 
+                value="all" 
+                className="data-[state=active]:bg-primary data-[state=active]:text-white transition-all duration-300"
+              >
+                {t('examples.all')}
+              </TabsTrigger>
               <TabsTrigger 
                 value="hormozi" 
                 className="data-[state=active]:bg-primary data-[state=active]:text-white transition-all duration-300"
@@ -110,16 +116,59 @@ const CopywritingExamples = () => {
                 value="ogilvy"
                 className="data-[state=active]:bg-primary data-[state=active]:text-white transition-all duration-300"
               >
-                Ogilvy
+                {t('examples.ogilvy')}
               </TabsTrigger>
               <TabsTrigger 
                 value="bencivenga"
                 className="data-[state=active]:bg-primary data-[state=active]:text-white transition-all duration-300"
               >
-                Bencivenga
+                {t('examples.bencivenga')}
               </TabsTrigger>
             </TabsList>
           </div>
+
+          {/* All styles at once */}
+          <TabsContent value="all" className="mt-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {Object.entries(copywriters).map(([key, copywriter]) => (
+                <Card key={key} className="glass-card border-white/10 shadow-2xl overflow-hidden">
+                  <CardHeader className="pb-6 bg-gradient-to-r from-primary/5 to-accent/5">
+                    <div className="space-y-3">
+                      <Badge className="bg-primary/20 text-primary border-primary/30">
+                        <Sparkles className="h-3 w-3 mr-1" />
+                        {copywriter.specialty}
+                      </Badge>
+                      <CardTitle className="text-2xl gradient-text">
+                        {copywriter.name} Style
+                      </CardTitle>
+                      <CardDescription className="text-base leading-relaxed">
+                        {copywriter.style}
+                      </CardDescription>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <div className="glass p-6 rounded-2xl relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
+                      <div className="relative">
+                        <h3 className="text-xl md:text-2xl font-bold mb-4 leading-tight">
+                          {copywriter.headline}
+                        </h3>
+                        <p className="mb-6 text-muted-foreground leading-relaxed">
+                          {copywriter.body}
+                        </p>
+                        <div className="flex justify-center">
+                          <Button size="sm" className="px-6 h-9 group glass-card hover:scale-105 transition-all duration-300">
+                            {copywriter.callToAction}
+                            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
 
           {Object.entries(copywriters).map(([key, copywriter]) => (
             <TabsContent key={key} value={key} className="mt-2">

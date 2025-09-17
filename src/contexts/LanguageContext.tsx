@@ -44,6 +44,9 @@ const translations = {
     'examples.hormozi': 'Hormozi Style',
     'examples.carlton': 'Carlton Style',
     'examples.halbert': 'Halbert Style',
+    'examples.ogilvy': 'Ogilvy Style',
+    'examples.bencivenga': 'Bencivenga Style',
+    'examples.all': 'All Styles',
     
     // Performance Metrics
     'metrics.title': 'Proven Results',
@@ -103,6 +106,9 @@ const translations = {
     'examples.hormozi': 'Style Hormozi',
     'examples.carlton': 'Style Carlton',
     'examples.halbert': 'Style Halbert',
+    'examples.ogilvy': 'Style Ogilvy',
+    'examples.bencivenga': 'Style Bencivenga',
+    'examples.all': 'Tous les styles',
     
     // Performance Metrics
     'metrics.title': 'Résultats Prouvés',

@@ -183,7 +183,7 @@ const CaseStudy = ({
 const PerformanceMetrics = () => {
   const { t } = useLanguage();
 
-  const caseStudies = [
+  const caseStudies: CaseStudyProps[] = [
     {
       company: "TechGrowth Solutions",
       industry: "SaaS / B2B Technology",
@@ -300,13 +300,13 @@ const PerformanceMetrics = () => {
               </TabsTrigger>
             </TabsList>
             <TabsContent value="case1">
-              <CaseStudy {...caseStudies[0]} />
+              {caseStudies[0] && <CaseStudy {...caseStudies[0]} />}
             </TabsContent>
             <TabsContent value="case2">
-              <CaseStudy {...caseStudies[1]} />
+              {caseStudies[1] && <CaseStudy {...caseStudies[1]} />}
             </TabsContent>
             <TabsContent value="case3">
-              <CaseStudy {...caseStudies[2]} />
+              {caseStudies[2] && <CaseStudy {...caseStudies[2]} />}
             </TabsContent>
           </Tabs>
         </div>

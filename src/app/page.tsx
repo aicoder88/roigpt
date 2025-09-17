@@ -1,19 +1,24 @@
+
 'use client';
 
 import React from "react";
-import { ThemeProvider } from 'next-themes';
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { LoadingProvider } from "@/contexts/LoadingContext";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import CopywritingExamples from "@/components/CopywritingExamples";
 import PerformanceMetrics from "@/components/PerformanceMetrics";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLoading } from "@/contexts/LoadingContext";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { CardSkeleton, MetricSkeleton } from "@/components/ui/loading-skeleton";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 function HomeContent() {
   const { t } = useLanguage();
+  const { isLoading, componentLoading } = useLoading();
 
   return (
     <main className="flex min-h-screen flex-col items-center relative overflow-hidden">
@@ -28,7 +33,9 @@ function HomeContent() {
 
       {/* Hero Section */}
       <section className="pt-20">
-        <HeroSection />
+        <ErrorBoundary>
+          <HeroSection />
+        </ErrorBoundary>
       </section>
 
       {/* Services Showcase */}
@@ -46,7 +53,17 @@ function HomeContent() {
               {t('services.subtitle')}
             </p>
           </div>
-          <ServicesShowcase />
+          {isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+            </div>
+          ) : (
+            <ErrorBoundary>
+              <ServicesShowcase />
+            </ErrorBoundary>
+          )}
         </div>
       </section>
 
@@ -85,7 +102,16 @@ function HomeContent() {
               {t('metrics.subtitle')}
             </p>
           </div>
-          <PerformanceMetrics />
+          {isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <MetricSkeleton />
+              <MetricSkeleton />
+              <MetricSkeleton />
+              <MetricSkeleton />
+            </div>
+          ) : (
+            <PerformanceMetrics />
+          )}
         </div>
       </section>
 
@@ -179,15 +205,10 @@ function HomeContent() {
 
 export default function Home() {
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
-      <LanguageProvider>
+    <LanguageProvider>
+      <LoadingProvider>
         <HomeContent />
-      </LanguageProvider>
-    </ThemeProvider>
+      </LoadingProvider>
+    </LanguageProvider>
   );
 }
