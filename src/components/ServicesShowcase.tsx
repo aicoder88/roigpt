@@ -1,4 +1,7 @@
+'use client';
+
 import React from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   Card,
   CardContent,
@@ -12,12 +15,13 @@ import { Badge } from "@/components/ui/badge";
 import {
   ArrowRight,
   Code,
-  Globe,
-  Pencil,
   Search,
+  Pencil,
   Zap,
   BarChart3,
   MessageSquare,
+  CheckCircle,
+  Sparkles,
 } from "lucide-react";
 
 interface ServiceCardProps {
@@ -39,53 +43,51 @@ const ServiceCard = ({
 }: ServiceCardProps) => {
   return (
     <Card
-      className={`w-full h-full overflow-hidden transition-all duration-300 hover:shadow-lg ${popular ? "border-primary" : "border-border"}`}
+      className={`w-full h-full overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl glass-card group ${
+        popular ? "border-primary/50 animate-glow" : "border-white/10"
+      }`}
     >
-      <div className="bg-background">
+      <div className="bg-gradient-to-br from-background/50 to-background/30 backdrop-blur-xl">
         {popular && (
-          <div className="bg-primary text-primary-foreground text-xs font-medium py-1 px-3 text-center">
-            MOST POPULAR
+          <div className="bg-gradient-to-r from-primary to-accent text-white text-xs font-medium py-2 px-4 text-center relative overflow-hidden">
+            <div className="absolute inset-0 bg-white/20 animate-shimmer"></div>
+            <div className="relative flex items-center justify-center gap-1">
+              <Sparkles className="h-3 w-3" />
+              MOST POPULAR
+              <Sparkles className="h-3 w-3" />
+            </div>
           </div>
         )}
-        <CardHeader>
+        <CardHeader className="pb-4">
           <div className="flex items-center justify-between">
-            <div className="p-2 rounded-md bg-muted">{icon}</div>
-            <Badge variant="outline" className="text-sm">
+            <div className="p-3 rounded-xl glass bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
+              {icon}
+            </div>
+            <Badge variant="outline" className="text-sm glass border-primary/20 text-primary font-semibold">
               {price}
             </Badge>
           </div>
-          <CardTitle className="mt-4">{title}</CardTitle>
-          <CardDescription className="line-clamp-2">
+          <CardTitle className="mt-4 text-xl group-hover:text-primary transition-colors duration-300">
+            {title}
+          </CardTitle>
+          <CardDescription className="text-muted-foreground leading-relaxed">
             {description}
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <ul className="space-y-2">
+          <ul className="space-y-3">
             {benefits.map((benefit, index) => (
-              <li key={index} className="flex items-start">
-                <div className="mr-2 mt-1 h-4 w-4 text-primary">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-4 w-4"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </div>
-                <span className="text-sm">{benefit}</span>
+              <li key={index} className="flex items-start gap-3">
+                <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                <span className="text-sm text-foreground/90">{benefit}</span>
               </li>
             ))}
           </ul>
         </CardContent>
         <CardFooter>
-          <Button className="w-full group">
+          <Button className="w-full group/btn glass-card hover:scale-105 transition-all duration-300 bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/20">
             Learn More
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
           </Button>
         </CardFooter>
       </div>
@@ -94,13 +96,14 @@ const ServiceCard = ({
 };
 
 export default function ServicesShowcase() {
+  const { t } = useLanguage();
+
   const services = [
     {
-      title: "NextJS Website Development",
-      description:
-        "Custom, high-performance websites built with NextJS for lightning-fast page loads and exceptional user experience.",
-      price: "From $2,499",
-      icon: <Code className="h-6 w-6" />,
+      title: t('services.nextjs.title'),
+      description: t('services.nextjs.description'),
+      price: t('services.nextjs.price'),
+      icon: <Code className="h-6 w-6 text-primary" />,
       benefits: [
         "100% Lighthouse score",
         "SEO optimized structure",
@@ -110,11 +113,10 @@ export default function ServicesShowcase() {
       popular: true,
     },
     {
-      title: "SEO Optimization",
-      description:
-        "Comprehensive SEO services to boost your visibility in search engines and drive organic traffic.",
-      price: "From $999/mo",
-      icon: <Search className="h-6 w-6" />,
+      title: t('services.seo.title'),
+      description: t('services.seo.description'),
+      price: t('services.seo.price'),
+      icon: <Search className="h-6 w-6 text-primary" />,
       benefits: [
         "Keyword research",
         "On-page optimization",
@@ -123,11 +125,10 @@ export default function ServicesShowcase() {
       ],
     },
     {
-      title: "AI Copywriting",
-      description:
-        "Persuasive, conversion-focused copy in the style of world-class copywriters like Hormozi, Carlton, and Halbert.",
-      price: "From $799",
-      icon: <Pencil className="h-6 w-6" />,
+      title: t('services.copywriting.title'),
+      description: t('services.copywriting.description'),
+      price: t('services.copywriting.price'),
+      icon: <Pencil className="h-6 w-6 text-primary" />,
       benefits: [
         "Multiple copywriting styles",
         "A/B testing options",
@@ -137,10 +138,9 @@ export default function ServicesShowcase() {
     },
     {
       title: "Performance Optimization",
-      description:
-        "Speed up your existing website with our performance optimization services for better user experience and SEO.",
+      description: "Speed up your existing website with our performance optimization services for better user experience and SEO.",
       price: "From $1,299",
-      icon: <Zap className="h-6 w-6" />,
+      icon: <Zap className="h-6 w-6 text-primary" />,
       benefits: [
         "Core Web Vitals improvement",
         "Image optimization",
@@ -150,10 +150,9 @@ export default function ServicesShowcase() {
     },
     {
       title: "Analytics & Reporting",
-      description:
-        "Comprehensive analytics setup and regular reporting to track your ROI and make data-driven decisions.",
+      description: "Comprehensive analytics setup and regular reporting to track your ROI and make data-driven decisions.",
       price: "From $499/mo",
-      icon: <BarChart3 className="h-6 w-6" />,
+      icon: <BarChart3 className="h-6 w-6 text-primary" />,
       benefits: [
         "Custom dashboard setup",
         "Conversion tracking",
@@ -163,10 +162,9 @@ export default function ServicesShowcase() {
     },
     {
       title: "Social Media Automation",
-      description:
-        "Streamline your social media presence with AI-powered content creation and scheduling tools.",
+      description: "Streamline your social media presence with AI-powered content creation and scheduling tools.",
       price: "From $699/mo",
-      icon: <MessageSquare className="h-6 w-6" />,
+      icon: <MessageSquare className="h-6 w-6 text-primary" />,
       benefits: [
         "Content calendar creation",
         "AI-generated posts",
@@ -177,30 +175,47 @@ export default function ServicesShowcase() {
   ];
 
   return (
-    <section className="py-16 px-4 bg-background">
-      <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-2">
-            Our Services
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Boost your online presence and ROI with our AI-powered marketing
-            solutions tailored to your business needs.
-          </p>
+    <section className="py-16 px-4 bg-background relative">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-10 right-10 w-32 h-32 bg-accent/10 rounded-full blur-2xl animate-float"></div>
+        <div className="absolute bottom-10 left-10 w-40 h-40 bg-primary/10 rounded-full blur-2xl animate-float" style={{ animationDelay: '3s' }}></div>
+      </div>
+
+      <div className="container mx-auto max-w-7xl relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="animate-in fade-in-50 slide-in-from-bottom-10 duration-700"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <ServiceCard
+                title={service.title}
+                description={service.description}
+                price={service.price}
+                icon={service.icon}
+                benefits={service.benefits}
+                popular={service.popular}
+              />
+            </div>
+          ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <ServiceCard
-              key={index}
-              title={service.title}
-              description={service.description}
-              price={service.price}
-              icon={service.icon}
-              benefits={service.benefits}
-              popular={service.popular}
-            />
-          ))}
+        {/* CTA Section */}
+        <div className="mt-16 text-center">
+          <div className="glass-card p-8 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold mb-4 gradient-text">
+              Need a Custom Solution?
+            </h3>
+            <p className="text-muted-foreground mb-6">
+              We create tailored AI-powered marketing strategies for businesses with unique requirements.
+            </p>
+            <Button size="lg" className="glass-card hover:scale-105 transition-all duration-300 animate-glow">
+              Schedule Consultation
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </div>
     </section>
