@@ -13,8 +13,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useLoading } from "@/contexts/LoadingContext";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
-import { CardSkeleton, MetricSkeleton } from "@/components/ui/loading-skeleton";
+import { CardSkeleton, MetricSkeleton, HeroSkeleton, CopywritingExamplesSkeleton } from "@/components/ui/loading-skeleton";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { ServiceErrorBoundary } from "@/components/ServiceErrorBoundary";
+import { CopywritingErrorBoundary } from "@/components/CopywritingErrorBoundary";
 
 function HomeContent() {
   const { t } = useLanguage();
@@ -33,9 +35,13 @@ function HomeContent() {
 
       {/* Hero Section */}
       <section className="pt-20">
-        <ErrorBoundary>
-          <HeroSection />
-        </ErrorBoundary>
+        {isLoading ? (
+          <HeroSkeleton />
+        ) : (
+          <ErrorBoundary>
+            <HeroSection />
+          </ErrorBoundary>
+        )}
       </section>
 
       {/* Services Showcase */}
@@ -60,9 +66,9 @@ function HomeContent() {
               <CardSkeleton />
             </div>
           ) : (
-            <ErrorBoundary>
+            <ServiceErrorBoundary>
               <ServicesShowcase />
-            </ErrorBoundary>
+            </ServiceErrorBoundary>
           )}
         </div>
       </section>
@@ -83,7 +89,13 @@ function HomeContent() {
               {t('examples.subtitle')}
             </p>
           </div>
-          <CopywritingExamples />
+          {isLoading ? (
+            <CopywritingExamplesSkeleton />
+          ) : (
+            <CopywritingErrorBoundary>
+              <CopywritingExamples />
+            </CopywritingErrorBoundary>
+          )}
         </div>
       </section>
 

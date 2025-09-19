@@ -58,7 +58,7 @@ const ServiceCard = ({
             </div>
           </div>
         )}
-        <CardHeader className="pb-4">
+        <CardHeader className="pb-6">
           <div className="flex items-center justify-between">
             <div className="p-3 rounded-xl glass bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
               {icon}

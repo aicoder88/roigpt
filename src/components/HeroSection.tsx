@@ -32,7 +32,7 @@ const HeroSection = ({
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }} />
       </div>
 
-      <div className="container mx-auto px-4 py-16 relative z-10">
+      <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="flex-1 space-y-8">
             <Badge
@@ -43,7 +43,7 @@ const HeroSection = ({
               AI-First Marketing Solutions
             </Badge>
 
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight gradient-text leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-text leading-tight">
               {displayTitle}
             </h1>
 
@@ -52,12 +52,12 @@ const HeroSection = ({
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="gap-2 text-lg px-8 py-6 h-auto group glass-card hover:scale-105 transition-all duration-300 animate-glow">
+              <Button size="lg" className="gap-2 text-lg px-8 py-6 h-auto group glass-card button-hover animate-glow">
                 {displayCtaText}
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
 
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6 h-auto glass-card hover:scale-105 transition-all duration-300">
+              <Button variant="outline" size="lg" className="text-lg px-8 py-6 h-auto glass-card button-hover">
                 {t('nav.services')}
               </Button>
             </div>
