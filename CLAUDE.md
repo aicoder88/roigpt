@@ -1,72 +1,68 @@
-# CLAUDE.md
+Project Architecture
+Next.js 14 App Router marketing website optimized for conversion and performance.
+Tech Stack
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Framework: Next.js 14 (App Router, React Server Components)
+Styling: Tailwind CSS + custom design system
+Components: Radix UI primitives + custom glassmorphic UI
+Features: Dark/light theming, i18n (EN/FR), advanced animations
+Testing: Playwright E2E, performance monitoring
 
-## Development Commands
+File Structure
+Copysrc/
+├── app/           # App Router (layout.tsx, page.tsx)
+├── components/    # Feature-organized React components
+├── contexts/      # LanguageContext (i18n), theme providers
+└── lib/          # Utilities (cn(), translations)
+Optimization Priorities
+Performance
 
-### Core Commands
-- `npm run dev` - Start the Next.js development server on http://localhost:3000
-- `npm run build` - Build the production application
-- `npm start` - Start the production server (requires build first)
+Core Web Vitals: Optimize LCP, FID, CLS for Google rankings
+Image Optimization: Next.js Image component, proper formats/sizing
+Code Splitting: Dynamic imports, lazy loading for non-critical components
+Bundle Analysis: Tree shaking, unused code elimination
 
-### Testing
-- `npm test` - Run Playwright end-to-end tests
-- `npm run browsers:install` - Install Playwright browser dependencies
-- `npm run report` - Show Playwright HTML test report
+Conversion Rate Optimization
 
-## Project Architecture
+Above-fold Critical Path: Hero section loads instantly
+CTA Optimization: Strategic placement, A/B testable components
+Social Proof: Performance metrics, testimonials, case studies
+Loading States: Skeleton screens, progressive enhancement
+Form UX: Validation, error handling, success states
 
-This is a **Next.js 14** marketing website for ROIGPT, an AI-powered marketing services company. The application uses the App Router and modern React patterns.
+Design System Excellence
 
-### Key Technologies
-- **Framework**: Next.js 14 with App Router
-- **Styling**: Tailwind CSS with custom design system
-- **UI Components**: Radix UI primitives with custom styling
-- **Theming**: next-themes for dark/light mode
-- **Internationalization**: Custom context-based i18n (English/French)
-- **Testing**: Playwright for E2E tests
-- **Analytics**: Tempo devtools integration
+Glass Morphism: Consistent .glass and .glass-card classes
+Animation Performance: Use transform and opacity for 60fps
+Responsive Design: Mobile-first, touch-friendly interactions
+Accessibility: ARIA labels, keyboard navigation, screen reader support
 
-### Architecture Overview
+SEO & Analytics
 
-**App Structure**:
-- `src/app/` - Next.js App Router structure with layout.tsx and page.tsx
-- `src/components/` - React components organized by feature
-- `src/contexts/` - React contexts (LanguageContext for i18n)
-- `src/lib/` - Utility functions
+Metadata: Dynamic meta tags, structured data
+Internationalization: Proper hreflang, locale-specific content
+Performance Tracking: Real user metrics, conversion funnels
+Tempo Integration: Advanced analytics for optimization insights
 
-**Key Features**:
-1. **Internationalization**: Built-in English/French language switching via LanguageContext
-2. **Theme System**: Dark/light mode support with custom CSS variables
-3. **Glass Morphism Design**: Custom glassmorphic UI elements with advanced animations
-4. **Component Architecture**: Mix of custom components and Radix UI primitives
+Key Implementation Notes
+Translation System
 
-### Component Organization
-- **Layout Components**: Header, ThemeProvider, LanguageProvider
-- **Page Sections**: HeroSection, ServicesShowcase, CopywritingExamples, PerformanceMetrics
-- **UI System**: Complete design system in `src/components/ui/` based on Radix UI
-- **Utility**: `cn()` function in utils.ts for conditional className merging
+Context-based i18n with t('key.path') syntax
+localStorage persistence for language preference
+Nested translation objects support complex content
 
-### Styling Conventions
-- Uses CSS variables for theming (defined in globals.css)
-- Custom animations: float, glow, shimmer effects
-- Glass morphism classes: `.glass`, `.glass-card`
-- Gradient text utility: `.gradient-text`
-- Responsive design with Tailwind breakpoints
+Styling Conventions
 
-### State Management
-- **Language**: LanguageContext with localStorage persistence
-- **Theme**: next-themes provider for system/dark/light modes
-- **Local State**: React useState/useEffect for component state
+CSS variables for consistent theming
+Custom animations: float, glow, shimmer
+Utility classes: .gradient-text, responsive breakpoints
+Component variants using cn() utility
 
-### Translation System
-The app uses a custom translation system in `LanguageContext.tsx`:
-- Translations stored as nested objects (en/fr)
-- Access via `t('key.path')` function
-- Automatic localStorage persistence of language preference
+Testing Strategy
 
-### Testing Setup
-Playwright is configured for cross-browser testing:
-- Tests run against local dev server (auto-started)
-- Supports Chromium, Firefox, and WebKit
-- HTML reporter available via `npm run report`
+Cross-browser compatibility (Chromium, Firefox, WebKit)
+User journey testing for conversion funnels
+Performance regression testing
+Accessibility compliance validation
+
+Focus Areas: When making changes, prioritize conversion rate impact, Core Web Vitals scores, and maintainable component architecture.Add to Conversation

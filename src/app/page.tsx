@@ -17,6 +17,13 @@ import { CardSkeleton, MetricSkeleton, HeroSkeleton, CopywritingExamplesSkeleton
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { ServiceErrorBoundary } from "@/components/ServiceErrorBoundary";
 import { CopywritingErrorBoundary } from "@/components/CopywritingErrorBoundary";
+import { ImageOptimizationDemo } from "@/components/ImageOptimizationDemo";
+import { FormValidationDemo } from "@/components/FormValidationDemo";
+import { AnalyticsDemo } from "@/components/AnalyticsDemo";
+import { LoadingSkeletonsDemo } from "@/components/LoadingSkeletonsDemo";
+import { ContactForm } from "@/components/ContactForm";
+import { NewsletterForm } from "@/components/NewsletterForm";
+import { TrackedButton } from "@/components/ui/tracked-components";
 
 function HomeContent() {
   const { t } = useLanguage();
@@ -127,8 +134,105 @@ function HomeContent() {
         </div>
       </section>
 
+      {/* Image Optimization Demo */}
+      <section className="w-full">
+        <ImageOptimizationDemo />
+      </section>
+
+      {/* Form Validation Demo */}
+      <section className="w-full">
+        <FormValidationDemo />
+      </section>
+
+      {/* Analytics Demo */}
+      <section className="w-full">
+        <AnalyticsDemo />
+      </section>
+
+      {/* Loading Skeletons Demo */}
+      <section className="w-full">
+        <LoadingSkeletonsDemo />
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="w-full py-20 px-4 md:px-8 lg:px-12 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5"></div>
+        <div className="max-w-6xl mx-auto relative">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-6">
+              <Sparkles className="h-4 w-4 text-primary" />
+              <span className="text-sm font-medium text-primary">Get Started</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
+              Ready to Boost Your ROI?
+            </h2>
+            <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+              Let's discuss your project and create a customized strategy to maximize your marketing ROI.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <ContactForm />
+
+            <div className="space-y-8">
+              {/* Why Choose Us */}
+              <div className="glass-card p-8">
+                <h3 className="text-2xl font-semibold mb-6 gradient-text">Why Choose ROIGPT?</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center mt-1">
+                      <Sparkles className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-1">AI-Powered Insights</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Leverage cutting-edge AI to optimize every aspect of your marketing funnel.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center mt-1">
+                      <ArrowRight className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-1">Proven Results</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Our clients see an average 340% increase in ROI within 90 days.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center mt-1">
+                      <Sparkles className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-1">Expert Team</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Work with experienced marketers and developers who understand ROI.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Newsletter Signup */}
+              <NewsletterForm
+                variant="card"
+                size="md"
+                onSubmit={async (data) => {
+                  console.log('Newsletter signup from contact page:', data);
+                  await new Promise(resolve => setTimeout(resolve, 1500));
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section id="contact" className="w-full py-24 px-4 md:px-8 lg:px-12 relative">
+      <section id="cta" className="w-full py-24 px-4 md:px-8 lg:px-12 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-3xl"></div>
         <div className="max-w-4xl mx-auto text-center relative glass-card p-12 md:p-16">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 rounded-2xl"></div>
@@ -139,10 +243,15 @@ function HomeContent() {
             <p className="text-xl md:text-2xl mb-10 text-muted-foreground leading-relaxed">
               {t('cta.subtitle')}
             </p>
-            <Button size="lg" className="text-lg px-8 py-6 h-auto group glass-card hover:scale-105 transition-all duration-300 animate-glow">
+            <TrackedButton
+              size="lg"
+              className="text-lg px-8 py-6 h-auto group glass-card hover:scale-105 transition-all duration-300 animate-glow"
+              trackingName="Main CTA"
+              trackingLocation="CTA Section"
+            >
               {t('cta.button')}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            </TrackedButton>
           </div>
         </div>
       </section>

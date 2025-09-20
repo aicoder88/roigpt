@@ -2,10 +2,12 @@
 
 /* import { TempoDevtools } from 'tempo-devtools'; [deprecated] */
 import { useEffect } from "react";
+import { getTempoConfig } from "@/lib/env";
 
 export function TempoInit() {
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_TEMPO) {
+    const tempoConfig = getTempoConfig();
+    if (tempoConfig) {
       /* TempoDevtools.init() [deprecated] */;
     }
   }, []);

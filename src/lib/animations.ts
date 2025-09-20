@@ -1,3 +1,38 @@
+// Animation durations
+export const durations = {
+  instant: "100ms",
+  fast: "150ms",
+  normal: "300ms",
+  slow: "500ms",
+  slower: "750ms",
+  float: "6s",
+  glow: "2s",
+  shimmer: "2s",
+} as const;
+
+// Easing functions
+export const easings = {
+  linear: "linear",
+  easeIn: "ease-in",
+  easeOut: "ease-out",
+  easeInOut: "ease-in-out",
+  bounceIn: "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+  bounceOut: "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+  smooth: "cubic-bezier(0.4, 0, 0.2, 1)",
+} as const;
+
+// Animation spacing values
+export const spacing = {
+  float: "-20px",
+  shimmerOpacity: "0.2",
+  shadowBlur: {
+    small: "20px",
+    medium: "40px",
+    large: "60px",
+  },
+  shadowSpread: "-10px",
+} as const;
+
 // Animation keyframes
 export const keyframes = {
   "accordion-down": {
@@ -10,11 +45,11 @@ export const keyframes = {
   },
   float: {
     "0%, 100%": { transform: "translateY(0px)" },
-    "50%": { transform: "translateY(-20px)" },
+    "50%": { transform: `translateY(${spacing.float})` },
   },
   glow: {
-    "0%": { boxShadow: "0 0 20px -10px hsl(var(--primary))" },
-    "100%": { boxShadow: "0 0 40px -10px hsl(var(--primary))" },
+    "0%": { boxShadow: `0 0 ${spacing.shadowBlur.small} ${spacing.shadowSpread} hsl(var(--primary))` },
+    "100%": { boxShadow: `0 0 ${spacing.shadowBlur.medium} ${spacing.shadowSpread} hsl(var(--primary))` },
   },
   shimmer: {
     "0%": { transform: "translateX(-100%)" },
@@ -40,33 +75,15 @@ export const keyframes = {
 
 // Animation configurations
 export const animations = {
-  "accordion-down": "accordion-down 0.2s ease-out",
-  "accordion-up": "accordion-up 0.2s ease-out",
-  float: "float 6s ease-in-out infinite",
-  glow: "glow 2s ease-in-out infinite alternate",
-  shimmer: "shimmer 2s infinite",
-  pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-  fadeIn: "fadeIn 0.5s ease-out",
-  slideIn: "slideIn 0.3s ease-out",
-  scaleIn: "scaleIn 0.2s ease-out",
-} as const;
-
-// Animation durations
-export const durations = {
-  fast: "150ms",
-  normal: "300ms",
-  slow: "500ms",
-  slower: "750ms",
-} as const;
-
-// Easing functions
-export const easings = {
-  linear: "linear",
-  easeIn: "ease-in",
-  easeOut: "ease-out",
-  easeInOut: "ease-in-out",
-  bounceIn: "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
-  bounceOut: "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+  "accordion-down": `accordion-down ${durations.fast} ${easings.easeOut}`,
+  "accordion-up": `accordion-up ${durations.fast} ${easings.easeOut}`,
+  float: `float ${durations.float} ${easings.easeInOut} infinite`,
+  glow: `glow ${durations.glow} ${easings.easeInOut} infinite alternate`,
+  shimmer: `shimmer ${durations.shimmer} infinite`,
+  pulse: `pulse ${durations.glow} ${easings.smooth} infinite`,
+  fadeIn: `fadeIn ${durations.slow} ${easings.easeOut}`,
+  slideIn: `slideIn ${durations.normal} ${easings.easeOut}`,
+  scaleIn: `scaleIn ${durations.fast} ${easings.easeOut}`,
 } as const;
 
 // Animation utilities

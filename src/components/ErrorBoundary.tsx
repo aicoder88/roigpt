@@ -4,6 +4,7 @@ import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { AlertTriangle, RefreshCw } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { isProduction, isDevelopment } from '@/lib/env';
 
 interface Props {
   children: ReactNode;
@@ -31,7 +32,7 @@ export class ErrorBoundary extends Component<Props, State> {
     this.setState({ error, errorInfo });
 
     // Log error to monitoring service in production
-    if (process.env.NODE_ENV === 'production') {
+    if (isProduction()) {
       console.error('Error caught by boundary:', error, errorInfo);
       // You can integrate with services like Sentry here
     }
@@ -62,7 +63,7 @@ export class ErrorBoundary extends Component<Props, State> {
               We encountered an unexpected error. Please try refreshing the page or contact support if the problem persists.
             </p>
 
-            {this.props.showError && this.state.error && process.env.NODE_ENV === 'development' && (
+            {this.props.showError && this.state.error && isDevelopment() && (
               <details className="text-sm text-muted-foreground">
                 <summary className="cursor-pointer hover:text-foreground">
                   Technical Details

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { animations, durations, easings } from '@/lib/animations';
 
 interface UseAnimationOptions {
@@ -53,7 +53,7 @@ export function useStaggeredAnimations(
     new Array(itemCount).fill(false)
   );
 
-  const playAll = () => {
+  const playAll = useCallback(() => {
     setPlayingStates(new Array(itemCount).fill(false));
 
     for (let i = 0; i < itemCount; i++) {
@@ -65,7 +65,7 @@ export function useStaggeredAnimations(
         });
       }, i * staggerDelay);
     }
-  };
+  }, [itemCount, staggerDelay]);
 
   const resetAll = () => {
     setPlayingStates(new Array(itemCount).fill(false));
@@ -82,7 +82,7 @@ export function useStaggeredAnimations(
       return () => clearTimeout(timer);
     }
     return undefined;
-  }, []);
+  }, [playAll, playingStates]);
 
   return {
     playAll,

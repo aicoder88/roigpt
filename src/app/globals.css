@@ -29,6 +29,16 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+
+    /* Animation constants */
+    --float-duration: 6s;
+    --glow-duration: 2s;
+    --shimmer-duration: 2s;
+    --float-offset: -20px;
+    --shimmer-opacity: 0.2;
+    --glow-blur-small: 20px;
+    --glow-blur-medium: 40px;
+    --glow-spread: -10px;
   }
 
   .dark {
@@ -103,11 +113,11 @@
   }
   
   .animate-float {
-    animation: float 6s ease-in-out infinite;
+    animation: float var(--float-duration, 6s) ease-in-out infinite;
   }
-  
+
   .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
+    animation: glow var(--glow-duration, 2s) ease-in-out infinite alternate;
   }
 
   .button-hover {
@@ -133,12 +143,12 @@
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(var(--float-offset, -20px)); }
 }
 
 @keyframes glow {
-  from { box-shadow: 0 0 20px -10px hsl(var(--primary)); }
-  to { box-shadow: 0 0 40px -10px hsl(var(--primary)); }
+  from { box-shadow: 0 0 var(--glow-blur-small, 20px) var(--glow-spread, -10px) hsl(var(--primary)); }
+  to { box-shadow: 0 0 var(--glow-blur-medium, 40px) var(--glow-spread, -10px) hsl(var(--primary)); }
 }
 
 @keyframes shimmer {
@@ -158,10 +168,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  animation: shimmer 2s infinite;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,var(--shimmer-opacity, 0.2)), transparent);
+  animation: shimmer var(--shimmer-duration, 2s) infinite;
 }
 
 .animate-shimmer {
-  animation: shimmer 2s infinite;
+  animation: shimmer var(--shimmer-duration, 2s) infinite;
 }

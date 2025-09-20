@@ -1,0 +1,26 @@
+# husky pre-push hook
+
+# Run the full test suite before pushing
+echo "🚀 Running full test suite before push..."
+
+# Run linting
+echo "🔍 Running ESLint..."
+npm run lint
+
+# Run type checking
+echo "🔧 Running TypeScript type check..."
+npm run type-check
+
+# Run unit tests
+echo "🧪 Running unit tests..."
+npm run test:unit
+
+# Run e2e tests
+echo "🎭 Running Playwright e2e tests..."
+npm run test
+
+# Run build to ensure production build works
+echo "🏗️ Running production build..."
+npm run build
+
+echo "✅ All pre-push checks passed! Ready to push."

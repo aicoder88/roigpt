@@ -5,6 +5,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { StructuredData } from "@/components/StructuredData";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { AnalyticsProvider } from "@/components/AnalyticsProvider";
+import { isDevelopment } from "@/lib/env";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -71,9 +73,15 @@ export default function RootLayout({
       {/* <Script src="https://api.tempo.build/proxy-asset?url=https://storage.googleapis.com/tempo-public-assets/error-handling.js" /> [deprecated] */}
       <body className={inter.className}>
         <ThemeProvider>
-          <ErrorBoundary showError={process.env.NODE_ENV === 'development'}>
-            {children}
-          </ErrorBoundary>
+          <AnalyticsProvider
+            showConsentBanner={true}
+            consentBannerVariant="detailed"
+            enablePageTracking={true}
+          >
+            <ErrorBoundary showError={isDevelopment()}>
+              {children}
+            </ErrorBoundary>
+          </AnalyticsProvider>
         </ThemeProvider>
         <TempoInit />
       </body>

@@ -1,19 +1,20 @@
 import { defineConfig, devices } from '@playwright/test';
+import { isCI, getBaseUrl } from './src/lib/env';
 
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
-  forbidOnly: !!process.env.CI,
+  forbidOnly: isCI(),
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  retries: isCI() ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: isCI() ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [['list'], ['html']],
   use: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000',
+    baseURL: getBaseUrl(),
     trace: 'on-first-retry',
   },
   /* Configure projects for major browsers */
@@ -34,8 +35,8 @@ export default defineConfig({
   /* Run local dev server during tests */
   webServer: {
     command: 'npm run dev',
-    url: process.env.BASE_URL || 'http://localhost:3000',
-    reuseExistingServer: !process.env.CI,
+    url: getBaseUrl(),
+    reuseExistingServer: !isCI(),
     stdout: 'pipe',
     stderr: 'pipe',
     timeout: 120000,
