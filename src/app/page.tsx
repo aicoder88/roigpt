@@ -17,10 +17,9 @@ import { CardSkeleton, MetricSkeleton, HeroSkeleton, CopywritingExamplesSkeleton
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { ServiceErrorBoundary } from "@/components/ServiceErrorBoundary";
 import { CopywritingErrorBoundary } from "@/components/CopywritingErrorBoundary";
-import { ImageOptimizationDemo } from "@/components/ImageOptimizationDemo";
-import { FormValidationDemo } from "@/components/FormValidationDemo";
-import { AnalyticsDemo } from "@/components/AnalyticsDemo";
-import { LoadingSkeletonsDemo } from "@/components/LoadingSkeletonsDemo";
+import { EnterpriseROIDashboard } from "@/components/EnterpriseROIDashboard";
+import { EnterpriseCaseStudies } from "@/components/EnterpriseCaseStudies";
+import { TrustIndicators } from "@/components/TrustIndicators";
 import { ContactForm } from "@/components/ContactForm";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { TrackedButton } from "@/components/ui/tracked-components";
@@ -134,24 +133,19 @@ function HomeContent() {
         </div>
       </section>
 
-      {/* Image Optimization Demo */}
+      {/* Enterprise ROI Dashboard */}
       <section className="w-full">
-        <ImageOptimizationDemo />
+        <EnterpriseROIDashboard />
       </section>
 
-      {/* Form Validation Demo */}
+      {/* Trust Indicators */}
       <section className="w-full">
-        <FormValidationDemo />
+        <TrustIndicators />
       </section>
 
-      {/* Analytics Demo */}
+      {/* Enterprise Case Studies */}
       <section className="w-full">
-        <AnalyticsDemo />
-      </section>
-
-      {/* Loading Skeletons Demo */}
-      <section className="w-full">
-        <LoadingSkeletonsDemo />
+        <EnterpriseCaseStudies />
       </section>
 
       {/* Contact Section */}
@@ -269,7 +263,7 @@ function HomeContent() {
                 {t('footer.tagline')}
               </p>
             </div>
-            
+
             <div>
               <h4 className="font-semibold mb-4 text-foreground">{t('footer.services')}</h4>
               <ul className="space-y-3">
@@ -290,7 +284,7 @@ function HomeContent() {
                 </li>
               </ul>
             </div>
-            
+
             <div>
               <h4 className="font-semibold mb-4 text-foreground">{t('footer.company')}</h4>
               <ul className="space-y-3">
@@ -312,7 +306,7 @@ function HomeContent() {
               </ul>
             </div>
           </div>
-          
+
           <div className="pt-8 border-t border-white/10 text-center">
             <p className="text-muted-foreground">
               © {new Date().getFullYear()} ROIGPT. {t('footer.copyright')}

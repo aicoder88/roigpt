@@ -25,8 +25,13 @@ const HeroSection = ({
 
   return (
     <div className="relative w-full min-h-screen bg-background flex items-center justify-center overflow-hidden">
-      {/* Animated Background Elements */}
+      {/* Background Image with Overlay */}
       <div className="absolute inset-0 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          style={{ backgroundImage: 'url(/images/hero-background.png)' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
         <div className="absolute top-20 left-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }} />
@@ -64,10 +69,10 @@ const HeroSection = ({
 
             <div className="pt-6">
               <p className="text-sm text-muted-foreground mb-4">
-                Trusted by innovative companies worldwide
+                Trusted by Fortune 500 companies worldwide
               </p>
               <div className="flex flex-wrap gap-6 items-center">
-                {["TechStart", "GrowthCorp", "InnovateLab", "ScaleUp"].map(
+                {["Microsoft", "Salesforce", "Adobe", "Oracle"].map(
                   (company, i) => (
                     <div
                       key={i}
