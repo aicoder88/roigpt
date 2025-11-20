@@ -54,21 +54,21 @@ function HomeContent() {
 
       <SectionDivider />
 
-      {/* The "Bleeding Neck" Problem Section */}
-      <section className="w-full py-20 px-4 md:px-8 lg:px-12 relative bg-black/40">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-8 text-red-500 tracking-tight">
-            WARNING: You Are Burning Money Every Single Day
+      {/* The "Bleeding Neck" Problem Section -> Digital Efficiency */}
+      <section className="w-full py-24 px-4 md:px-8 lg:px-12 relative bg-black/5 dark:bg-white/5">
+        <div className="max-w-4xl mx-auto text-center animate-slide-up-fade">
+          <h2 className="text-3xl md:text-5xl font-bold mb-8 tracking-tight">
+            Maximize Digital Efficiency
           </h2>
           <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
             <p>
-              Most businesses are <strong className="text-white">invisible</strong>. They spend thousands on ads, SEO, and content, only to get crickets.
+              In today's competitive landscape, <strong className="text-foreground">digital invisibility</strong> is a liability. Traditional marketing approaches often lack the precision required for modern enterprise growth.
             </p>
             <p>
-              Why? Because your website is a leaky bucket. It's slow, it's confusing, and it doesn't <em>sell</em>.
+              Inefficient funnels and unoptimized campaigns result in significant capital leakage.
             </p>
-            <p className="text-white font-semibold">
-              Every visitor that leaves without buying is money flushed down the toilet.
+            <p className="text-foreground font-semibold">
+              We transform underperforming assets into high-yield revenue generators.
             </p>
           </div>
         </div>
@@ -77,19 +77,19 @@ function HomeContent() {
       <SectionDivider />
 
       {/* Services Showcase (The Solution) */}
-      <section id="services" className="w-full py-20 px-4 md:px-8 lg:px-12 relative">
+      <section id="services" className="w-full py-24 px-4 md:px-8 lg:px-12 relative">
         <FloatingOrb size="lg" color="accent" className="top-20 right-0 opacity-30" />
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-6 animate-glow">
+          <div className="text-center mb-16 animate-slide-up-fade">
+            <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-6">
               <Sparkles className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-primary">THE SOLUTION</span>
+              <span className="text-sm font-medium text-primary">INTELLIGENT ARCHITECTURE</span>
             </div>
             <h2 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
-              We Don't Just "Do Marketing."<br />We Engineer Revenue.
+              Data-Driven Performance.<br />Engineered for Scale.
             </h2>
             <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-              Forget "brand awareness." We focus on one thing: <strong>Putting money in your bank account.</strong> Here is exactly how we do it:
+              Beyond traditional marketing. We implement a comprehensive, AI-driven infrastructure designed to <strong>optimize revenue velocity.</strong>
             </p>
           </div>
           {isLoading ? (
@@ -194,70 +194,61 @@ function HomeContent() {
 
       <SectionDivider />
 
-      {/* The "Grand Slam" Offer Section */}
+      {/* The "Grand Slam" Offer Section -> Enterprise Partnership */}
       <section className="w-full py-24 px-4 md:px-8 lg:px-12 relative bg-gradient-to-b from-background to-primary/5">
         <div className="max-w-5xl mx-auto">
-          <div className="glass-card p-8 md:p-12 border-primary/30 relative overflow-hidden">
-            <div className="absolute top-0 right-0 bg-primary text-white px-8 py-2 transform rotate-45 translate-x-10 translate-y-6 font-bold shadow-lg">
-              LIMITED SPOTS
-            </div>
+          <div className="glass-card p-8 md:p-12 border-primary/10 relative overflow-hidden animate-slide-up-fade">
 
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
-                The "Double Your ROI" Offer
+                Enterprise Growth Partnership
               </h2>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-                We are so confident in our AI systems that we take all the risk.
+                A fully managed, AI-integrated ecosystem for sustained revenue growth.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-12">
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="h-6 w-6 text-green-500" />
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                    <CheckCircle className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Complete AI Funnel Build</h3>
-                    <p className="text-muted-foreground">We build your entire conversion engine from scratch. Copy, design, tech, analytics. Done.</p>
+                    <h3 className="text-xl font-bold mb-2">Full-Stack AI Integration</h3>
+                    <p className="text-muted-foreground">End-to-end implementation of our proprietary AI revenue engine.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="h-6 w-6 text-green-500" />
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                    <CheckCircle className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">90-Day Growth Sprint</h3>
-                    <p className="text-muted-foreground">Our team manages your ads and optimization daily for 3 full months.</p>
+                    <h3 className="text-xl font-bold mb-2">Strategic Optimization</h3>
+                    <p className="text-muted-foreground">Continuous algorithmic refinement of all acquisition channels.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="h-6 w-6 text-green-500" />
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                    <CheckCircle className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">24/7 Revenue Dashboard</h3>
-                    <p className="text-muted-foreground">Access to the "Truth" dashboard to see your profits in real-time.</p>
+                    <h3 className="text-xl font-bold mb-2">Real-Time Intelligence</h3>
+                    <p className="text-muted-foreground">Executive-level dashboards providing granular visibility into ROI.</p>
                   </div>
                 </div>
               </div>
 
-              <div className="glass bg-black/40 p-8 rounded-2xl border border-white/10 text-center">
-                <h3 className="text-2xl font-bold mb-4 text-white">The Guarantee</h3>
-                <p className="text-lg text-muted-foreground mb-6">
-                  If we don't generate at least <span className="text-white font-bold">300% ROI</span> on your ad spend within 90 days...
+              <div className="glass bg-black/5 dark:bg-white/5 p-8 rounded-2xl border border-black/10 dark:border-white/10 text-center">
+                <h3 className="text-2xl font-bold mb-4 text-foreground">Partnership Application</h3>
+                <p className="text-lg text-muted-foreground mb-8">
+                  We accept a limited number of enterprise partners each quarter to ensure maximum resource allocation.
                 </p>
-                <div className="text-3xl font-bold text-primary mb-2">WE PAY YOU</div>
-                <p className="text-sm text-muted-foreground mb-8">
-                  We will refund our entire fee AND pay for your ad spend.
-                </p>
-                <Button size="lg" className="w-full text-lg py-8 button-premium animate-glow">
-                  Claim This Offer Now
+
+                <Button size="lg" className="w-full text-lg py-8 button-premium">
+                  Apply for Partnership
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <p className="text-xs text-muted-foreground mt-4">
-                  *Only 3 spots available for this guarantee this month.
-                </p>
               </div>
             </div>
           </div>
@@ -360,27 +351,27 @@ function HomeContent() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section -> Ready to Scale */}
       <section id="cta" className="w-full py-24 px-4 md:px-8 lg:px-12 relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-3xl"></div>
-        <div className="max-w-4xl mx-auto text-center relative glass-card p-12 md:p-16">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 blur-3xl"></div>
+        <div className="max-w-4xl mx-auto text-center relative glass-card p-12 md:p-16 animate-slide-up-fade">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 rounded-2xl"></div>
           <FloatingOrb size="lg" color="primary" className="top-0 left-0 opacity-30" />
 
           <div className="relative z-10">
             <h2 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
-              {t('cta.title')}
+              Ready to Scale?
             </h2>
             <p className="text-xl md:text-2xl mb-10 text-muted-foreground leading-relaxed">
-              {t('cta.subtitle')}
+              Partner with ROIGPT to implement autonomous revenue architecture for your enterprise.
             </p>
             <TrackedButton
               size="lg"
-              className="text-lg px-8 py-6 h-auto group glass-card hover:scale-105 transition-all duration-300 animate-glow"
+              className="text-lg px-8 py-6 h-auto group glass-card hover:scale-105 transition-all duration-300"
               trackingName="Main CTA"
               trackingLocation="CTA Section"
             >
-              {t('cta.button')}
+              Schedule Consultation
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </TrackedButton>
           </div>

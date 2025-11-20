@@ -55,43 +55,46 @@ const HeroSection = ({
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="flex-1 space-y-8">
-            <Badge
-              variant="outline"
-              className="px-4 py-2 text-sm liquid-glass border-primary/30 text-primary animate-glow"
-            >
-              <Sparkles className="h-4 w-4 mr-2 text-accent" />
-              WARNING: For Serious Entrepreneurs Only
-            </Badge>
+            <div className="animate-slide-up-fade" style={{ animationDelay: '0.1s' }}>
+              <Badge
+                variant="outline"
+                className="px-4 py-2 text-sm bg-primary/10 border-primary/20 text-primary rounded-full"
+              >
+                <Sparkles className="h-4 w-4 mr-2" />
+                AI-Powered Performance Architecture
+              </Badge>
+            </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-text leading-tight">
-              The "Lazy" Way To Add <span className="text-primary">$1M+ To Your Bottom Line</span> In 90 Days Or Less... Guaranteed.
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight animate-slide-up-fade" style={{ animationDelay: '0.2s' }}>
+              Autonomous Revenue <br />
+              <span className="gradient-text">Optimization</span> for Enterprise
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-              Stop burning ad spend on "hope marketing." Our AI Autonomous Revenue Scientist analyzes, optimizes, and scales your campaigns 24/7. <strong className="text-foreground">If you don't see a 300% ROI increase, we pay you.</strong>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed animate-slide-up-fade" style={{ animationDelay: '0.3s' }}>
+              Leverage our AI Autonomous Revenue Scientist to analyze, optimize, and scale your digital campaigns with precision. Data-driven growth, engineered for results.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="gap-2 text-lg px-8 py-6 h-auto group button-premium border-none text-white shadow-[0_0_30px_rgba(var(--primary),0.5)] hover:shadow-[0_0_50px_rgba(var(--primary),0.7)] transition-all duration-300">
-                Get My Free ROI Audit
+            <div className="flex flex-col sm:flex-row gap-4 animate-slide-up-fade" style={{ animationDelay: '0.4s' }}>
+              <Button size="lg" className="gap-2 text-lg px-8 py-6 h-auto group button-premium border-none text-white shadow-lg hover:shadow-xl transition-all duration-300">
+                Start AI Analysis
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
 
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6 h-auto glass-card hover:bg-white/10 border-white/20 text-foreground">
-                See The Case Studies
+              <Button variant="outline" size="lg" className="text-lg px-8 py-6 h-auto glass-card hover:bg-white/10 border-black/10 dark:border-white/20 text-foreground">
+                View Case Studies
               </Button>
             </div>
 
-            <div className="pt-6">
-              <p className="text-sm text-muted-foreground mb-4 font-semibold">
-                TRUSTED TO MANAGE OVER $50M IN AD SPEND BY:
+            <div className="pt-8 animate-slide-up-fade" style={{ animationDelay: '0.5s' }}>
+              <p className="text-sm text-muted-foreground mb-6 font-medium tracking-wide uppercase">
+                Trusted by industry leaders
               </p>
-              <div className="flex flex-wrap gap-6 items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+              <div className="flex flex-wrap gap-8 items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
                 {["Microsoft", "Salesforce", "Adobe", "Oracle"].map(
                   (company, i) => (
                     <div
                       key={i}
-                      className="text-muted-foreground font-bold text-lg"
+                      className="text-foreground font-bold text-xl"
                     >
                       {company}
                     </div>

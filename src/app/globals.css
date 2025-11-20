@@ -5,47 +5,59 @@
 @layer base {
   :root {
     /* Premium Light Mode (Clean, High-End) */
-    --background: 210 40% 98%; /* Very subtle cool white */
-    --foreground: 222 47% 11%; /* Deep Navy for text */
-    
+    --background: 210 40% 98%;
+    /* Very subtle cool white */
+    --foreground: 222 47% 11%;
+    /* Deep Navy for text */
+
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
-    
+
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
-    
-    --primary: 210 100% 50%; /* Electric Azure */
+
+    --primary: 210 100% 50%;
+    /* Electric Azure */
     --primary-foreground: 210 40% 98%;
-    
+
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222 47% 11%;
-    
+
     --muted: 210 40% 96.1%;
-    --muted-foreground: 215 25% 40%; /* Cool Slate, not gray */
-    
-    --accent: 45 100% 55%; /* Rich Gold */
+    --muted-foreground: 215 25% 40%;
+    /* Cool Slate, not gray */
+
+    --accent: 45 100% 55%;
+    /* Rich Gold */
     --accent-foreground: 222 47% 11%;
-    
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    
+
     --border: 214 32% 91%;
     --input: 214 32% 91%;
     --ring: 210 100% 50%;
-    
+
     --radius: 1rem;
-    
-    --chart-1: 210 100% 50%; /* Azure */
-    --chart-2: 180 100% 40%; /* Teal */
-    --chart-3: 45 100% 55%;  /* Gold */
-    --chart-4: 260 100% 65%; /* Royal Purple replaced with Deep Indigo */
-    --chart-5: 340 85% 60%;  /* Rose */
+
+    --chart-1: 210 100% 50%;
+    /* Azure */
+    --chart-2: 180 100% 40%;
+    /* Teal */
+    --chart-3: 45 100% 55%;
+    /* Gold */
+    --chart-4: 260 100% 65%;
+    /* Royal Purple replaced with Deep Indigo */
+    --chart-5: 340 85% 60%;
+    /* Rose */
 
     /* Animation constants */
-    --float-duration: 8s; /* Slower, more elegant */
+    --float-duration: 8s;
+    /* Slower, more elegant */
     --glow-duration: 3s;
     --shimmer-duration: 2.5s;
-    --float-offset: -10px; /* Reduced movement */
+    --float-offset: -10px;
+    /* Reduced movement */
     --shimmer-opacity: 0.3;
     --glow-blur-small: 25px;
     --glow-blur-medium: 50px;
@@ -54,39 +66,48 @@
 
   .dark {
     /* Premium Dark Mode (Midnight, Powerful) */
-    --background: 222 47% 8%; /* Deep Midnight Blue */
+    --background: 222 47% 8%;
+    /* Deep Midnight Blue */
     --foreground: 210 40% 98%;
-    
+
     --card: 222 47% 10%;
     --card-foreground: 210 40% 98%;
-    
+
     --popover: 222 47% 10%;
     --popover-foreground: 210 40% 98%;
-    
-    --primary: 190 100% 50%; /* Cyan/Electric Blue */
+
+    --primary: 190 100% 50%;
+    /* Cyan/Electric Blue */
     --primary-foreground: 222 47% 11%;
-    
+
     --secondary: 217 32% 17.5%;
     --secondary-foreground: 210 40% 98%;
-    
+
     --muted: 217 32% 17.5%;
-    --muted-foreground: 215 20% 65%; /* Lighter Slate */
-    
-    --accent: 45 100% 50%; /* Gold */
+    --muted-foreground: 215 20% 65%;
+    /* Lighter Slate */
+
+    --accent: 45 100% 50%;
+    /* Gold */
     --accent-foreground: 222 47% 11%;
-    
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    
+
     --border: 217 32% 20%;
     --input: 217 32% 20%;
     --ring: 190 100% 50%;
-    
-    --chart-1: 190 100% 50%; /* Cyan */
-    --chart-2: 210 100% 60%; /* Blue */
-    --chart-3: 45 100% 50%;  /* Gold */
-    --chart-4: 160 100% 50%; /* Emerald */
-    --chart-5: 320 100% 60%; /* Magenta */
+
+    --chart-1: 190 100% 50%;
+    /* Cyan */
+    --chart-2: 210 100% 60%;
+    /* Blue */
+    --chart-3: 45 100% 50%;
+    /* Gold */
+    --chart-4: 160 100% 50%;
+    /* Emerald */
+    --chart-5: 320 100% 60%;
+    /* Magenta */
   }
 }
 
@@ -94,7 +115,7 @@
   * {
     @apply border-border;
   }
-  
+
   body {
     @apply text-foreground bg-background;
     /* Premium Liquid Background */
@@ -107,35 +128,54 @@
     line-height: 1.6;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     line-height: 1.1;
     letter-spacing: -0.02em;
   }
 }
 
 @layer components {
-  /* Liquid Glass Effect */
+
+  /* Webflow-style Clean Glass */
   .glass {
-    @apply backdrop-blur-[20px] bg-gradient-to-br from-white/10 to-white/5 dark:from-white/10 dark:to-white/[0.02] border border-white/20 dark:border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.1)];
+    @apply backdrop-blur-md bg-white/80 dark:bg-black/80 border border-black/5 dark:border-white/10 shadow-sm;
   }
 
   .glass-card {
-    @apply glass rounded-2xl transition-all duration-500 hover:shadow-[0_8px_32px_0_rgba(var(--primary),0.15)] hover:border-white/30 dark:hover:border-white/20;
+    @apply glass rounded-xl transition-all duration-300 hover:shadow-md hover:-translate-y-1;
   }
-  
+
   .liquid-glass {
-    @apply relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/20 shadow-xl;
+    @apply relative overflow-hidden backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg;
   }
-  
+
   .liquid-glass::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-50 pointer-events-none;
+    @apply absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-30 pointer-events-none;
+  }
+
+  /* New Animation Utilities */
+  .animate-slide-up-fade {
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .gradient-text {
     @apply bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer;
   }
-  
+
   /* Subtle Float (No Bounce) */
   .animate-float-subtle {
     animation: float-subtle var(--float-duration, 8s) ease-in-out infinite;
@@ -149,20 +189,23 @@
     @apply relative overflow-hidden transition-all duration-300 ease-out hover:-translate-y-0.5 shadow-lg hover:shadow-primary/25;
     background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary)/0.8));
   }
-  
+
   .button-premium::after {
     content: '';
     @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full;
     transition: transform 0.6s ease;
   }
-  
+
   .button-premium:hover::after {
     @apply translate-x-full;
   }
 
   /* Touch target optimization for mobile */
   @media (max-width: 768px) {
-    button, .button, [role="button"] {
+
+    button,
+    .button,
+    [role="button"] {
       min-height: 48px;
       min-width: 48px;
     }
@@ -170,20 +213,73 @@
 }
 
 @keyframes float-subtle {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes glow {
-  from { box-shadow: 0 0 20px -5px hsl(var(--primary)/0.5); }
-  to { box-shadow: 0 0 30px 5px hsl(var(--primary)/0.3); }
+  from {
+    box-shadow: 0 0 20px -5px hsl(var(--primary)/0.5);
+  }
+
+  to {
+    box-shadow: 0 0 30px 5px hsl(var(--primary)/0.3);
+  }
 }
 
 @keyframes shimmer {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
 }
 
 .animate-shimmer {
   animation: shimmer 8s linear infinite;
+}
+
+@keyframes slideUpFade {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
