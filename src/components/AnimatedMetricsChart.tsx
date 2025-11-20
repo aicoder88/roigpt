@@ -256,7 +256,7 @@ export function AnimatedMetricsChart({
             <path
               key={index}
               d={pathData}
-              fill={point.color || `hsl(${index * 60}, 70%, 50%)`}
+              fill={point.color || `hsl(var(--chart-${(index % 5) + 1}))`}
               className="hover:scale-105 transition-transform duration-300 origin-center drop-shadow-md"
               stroke="hsl(var(--background))"
               strokeWidth="1"
@@ -373,7 +373,7 @@ export function AnimatedMetricsChart({
             <div key={index} className="flex items-center gap-2 text-xs text-muted-foreground">
               <div
                 className="w-3 h-3 rounded-full"
-                style={{ backgroundColor: point.color || `hsl(${index * 60}, 70%, 50%)` }}
+                style={{ backgroundColor: point.color || `hsl(var(--chart-${(index % 5) + 1}))` }}
               />
               {point.label}
             </div>

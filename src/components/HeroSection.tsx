@@ -35,9 +35,9 @@ const HeroSection = ({
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
 
         {/* Animated Orbs */}
-        <FloatingOrb size="lg" color="primary" className="top-20 left-10" />
-        <FloatingOrb size="xl" color="accent" className="bottom-20 right-10" delay={2} />
-        <FloatingOrb size="lg" color="primary" className="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-50" delay={4} />
+        <FloatingOrb size="lg" color="primary" className="top-20 left-10 opacity-30" />
+        <FloatingOrb size="xl" color="accent" className="bottom-20 right-10 opacity-20" delay={2} />
+        <FloatingOrb size="lg" color="primary" className="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-20" delay={4} />
 
         {/* Particles */}
         {Array.from({ length: 20 }).map((_, i) => (
@@ -59,9 +59,9 @@ const HeroSection = ({
           <div className="flex-1 space-y-8">
             <Badge
               variant="outline"
-              className="px-4 py-2 text-sm glass-card border-primary/20 animate-glow"
+              className="px-4 py-2 text-sm liquid-glass border-primary/30 text-primary animate-glow"
             >
-              <Sparkles className="h-4 w-4 mr-2 text-primary" />
+              <Sparkles className="h-4 w-4 mr-2 text-accent" />
               AI-First Marketing Solutions
             </Badge>
 
@@ -74,12 +74,12 @@ const HeroSection = ({
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="gap-2 text-lg px-8 py-6 h-auto group glass-card button-hover animate-glow">
+              <Button size="lg" className="gap-2 text-lg px-8 py-6 h-auto group button-premium border-none text-white">
                 {displayCtaText}
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
 
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6 h-auto glass-card button-hover">
+              <Button variant="outline" size="lg" className="text-lg px-8 py-6 h-auto glass-card hover:bg-white/10 border-white/20 text-foreground">
                 {t('nav.services')}
               </Button>
             </div>
@@ -104,9 +104,9 @@ const HeroSection = ({
           </div>
 
           <div className="flex-1 perspective-1000">
-            <div className="relative glass-card p-2 shadow-2xl max-w-xl mx-auto animate-float transform rotate-y-12 rotate-x-6 hover:rotate-0 transition-transform duration-700">
+            <div className="relative glass-card p-2 shadow-2xl max-w-xl mx-auto transform rotate-y-12 rotate-x-6 hover:rotate-0 transition-transform duration-700">
               <div className="absolute -top-6 -right-6 z-20">
-                <Badge className="bg-primary text-primary-foreground animate-pulse px-4 py-2 text-lg shadow-lg">
+                <Badge className="bg-accent text-accent-foreground animate-pulse px-4 py-2 text-lg shadow-lg border border-white/20">
                   <Zap className="h-4 w-4 mr-2" />
                   +340% ROI
                 </Badge>
@@ -133,8 +133,8 @@ const HeroSection = ({
                   </div>
                 </div>
 
-                {/* Floating Charts Overlay */}
-                <div className="absolute bottom-4 left-4 glass p-3 rounded-lg animate-float" style={{ animationDelay: '1s' }}>
+                {/* Floating Charts Overlay - Static or Subtle */}
+                <div className="absolute bottom-4 left-4 glass p-3 rounded-lg animate-float-subtle" style={{ animationDelay: '1s' }}>
                   <div className="flex items-center gap-2 mb-2">
                     <BarChart3 className="w-4 h-4 text-primary" />
                     <span className="text-xs font-semibold">Revenue</span>
@@ -144,7 +144,7 @@ const HeroSection = ({
                   </div>
                 </div>
 
-                <div className="absolute top-1/3 right-4 glass p-3 rounded-lg animate-float" style={{ animationDelay: '2.5s' }}>
+                <div className="absolute top-1/3 right-4 glass p-3 rounded-lg animate-float-subtle" style={{ animationDelay: '2.5s' }}>
                   <div className="flex items-center gap-2 mb-2">
                     <PieChart className="w-4 h-4 text-accent" />
                     <span className="text-xs font-semibold">Traffic</span>
@@ -163,7 +163,7 @@ const HeroSection = ({
           <div className="glass-card p-6 shadow-lg hover:scale-105 transition-transform duration-300">
             <div className="flex gap-1 mb-3">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                <Star key={i} className="h-4 w-4 fill-accent text-accent" />
               ))}
             </div>
             <p className="text-lg font-medium mb-4 leading-relaxed">
@@ -178,7 +178,7 @@ const HeroSection = ({
           <div className="glass-card p-6 shadow-lg hover:scale-105 transition-transform duration-300">
             <div className="flex gap-1 mb-3">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                <Star key={i} className="h-4 w-4 fill-accent text-accent" />
               ))}
             </div>
             <p className="text-lg font-medium mb-4 leading-relaxed">

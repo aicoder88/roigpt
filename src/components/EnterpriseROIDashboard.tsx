@@ -15,17 +15,17 @@ const roiData = [
 ];
 
 const conversionData = [
-    { label: 'Email', value: 24, color: 'hsl(var(--primary))' },
-    { label: 'Landing', value: 42, color: 'hsl(217, 91%, 60%)' },
-    { label: 'Social', value: 31, color: 'hsl(var(--accent))' },
-    { label: 'Ads', value: 38, color: 'hsl(280, 100%, 70%)' },
+    { label: 'Email', value: 24, color: 'hsl(var(--chart-1))' },
+    { label: 'Landing', value: 42, color: 'hsl(var(--chart-2))' },
+    { label: 'Social', value: 31, color: 'hsl(var(--chart-3))' },
+    { label: 'Ads', value: 38, color: 'hsl(var(--chart-4))' },
 ];
 
 const channelDistribution = [
-    { label: 'Organic', value: 45, color: 'hsl(var(--primary))' },
-    { label: 'Paid', value: 25, color: 'hsl(var(--accent))' },
-    { label: 'Referral', value: 20, color: 'hsl(217, 91%, 60%)' },
-    { label: 'Direct', value: 10, color: 'hsl(280, 100%, 70%)' },
+    { label: 'Organic', value: 45, color: 'hsl(var(--chart-1))' },
+    { label: 'Paid', value: 25, color: 'hsl(var(--chart-3))' },
+    { label: 'Referral', value: 20, color: 'hsl(var(--chart-2))' },
+    { label: 'Direct', value: 10, color: 'hsl(var(--chart-5))' },
 ];
 
 const metrics = [
@@ -44,7 +44,7 @@ const metrics = [
         prefix: '$',
         suffix: 'M',
         description: 'For our clients',
-        color: 'text-green-500',
+        color: 'text-emerald-500',
     },
     {
         icon: Users,
@@ -60,7 +60,7 @@ const metrics = [
         value: 85,
         suffix: '%',
         description: 'Campaign optimization',
-        color: 'text-yellow-500',
+        color: 'text-amber-500',
     },
 ];
 
@@ -140,9 +140,9 @@ export function EnterpriseROIDashboard() {
                                 </p>
                             </div>
                             <div className="hidden md:block">
-                                <div className="flex items-center gap-2 text-sm bg-green-500/10 px-3 py-1 rounded-full">
-                                    <TrendingUp className="h-4 w-4 text-green-500" />
-                                    <span className="text-green-500 font-semibold">+240% Growth</span>
+                                <div className="flex items-center gap-2 text-sm bg-emerald-500/10 px-3 py-1 rounded-full">
+                                    <TrendingUp className="h-4 w-4 text-emerald-500" />
+                                    <span className="text-emerald-500 font-semibold">+240% Growth</span>
                                 </div>
                             </div>
                         </div>
@@ -199,7 +199,7 @@ export function EnterpriseROIDashboard() {
                     </p>
                     <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground relative z-10">
                         <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                            <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
                             <span>Real-time optimization</span>
                         </div>
                         <div className="flex items-center gap-2">
