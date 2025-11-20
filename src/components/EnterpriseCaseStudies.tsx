@@ -10,8 +10,8 @@ const caseStudies = [
         company: 'TechCorp Global',
         industry: 'Enterprise SaaS',
         icon: Building2,
-        challenge: 'Low conversion rates on landing pages and email campaigns',
-        solution: 'AI-powered campaign optimization and A/B testing',
+        challenge: 'Bleeding $50k/month on ads with zero attribution.',
+        solution: 'Implemented "Truth Dashboard" & AI Bid Management.',
         results: [
             { label: 'ROI Increase', value: 425, suffix: '%' },
             { label: 'Conversion Rate', value: 18.5, suffix: '%' },
@@ -24,7 +24,7 @@ const caseStudies = [
             { label: 'Q4', value: 425 },
         ],
         testimonial: {
-            quote: 'ROIGPT transformed our marketing efficiency. The AI-generated strategies outperform our best manual efforts consistently.',
+            quote: 'I stopped looking at the ads manager. I just look at the bank account now. ROIGPT is a money printer.',
             author: 'Sarah Chen',
             role: 'CMO, TechCorp Global',
         },
@@ -91,13 +91,13 @@ export function EnterpriseCaseStudies() {
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-6">
                         <Star className="h-4 w-4 text-accent fill-accent" />
-                        <span className="text-sm font-medium text-accent">Success Stories</span>
+                        <span className="text-sm font-medium text-accent">UNDENIABLE PROOF</span>
                     </div>
                     <h2 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
-                        Enterprise Case Studies
+                        Results That Scale
                     </h2>
                     <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                        See how leading enterprises achieve transformational results with AI-powered marketing solutions.
+                        We don't deal in "vanity metrics." We deal in profit. Here is what happens when you let our AI take over.
                     </p>
                 </div>
 

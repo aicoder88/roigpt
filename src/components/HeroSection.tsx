@@ -18,11 +18,9 @@ const HeroSection = ({
   subtitle,
   ctaText,
 }: HeroSectionProps = {}) => {
-  const { t } = useLanguage();
+  // Props are kept for compatibility but ignored for the new copy
+  // const { t } = useLanguage(); 
 
-  const displayTitle = title || t('hero.title');
-  const displaySubtitle = subtitle || t('hero.subtitle');
-  const displayCtaText = ctaText || t('hero.cta');
 
   return (
     <div className="relative w-full min-h-screen bg-background flex items-center justify-center overflow-hidden">
@@ -62,38 +60,38 @@ const HeroSection = ({
               className="px-4 py-2 text-sm liquid-glass border-primary/30 text-primary animate-glow"
             >
               <Sparkles className="h-4 w-4 mr-2 text-accent" />
-              AI-First Marketing Solutions
+              WARNING: For Serious Entrepreneurs Only
             </Badge>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-text leading-tight">
-              {displayTitle}
+              The "Lazy" Way To Add <span className="text-primary">$1M+ To Your Bottom Line</span> In 90 Days Or Less... Guaranteed.
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-              {displaySubtitle}
+              Stop burning ad spend on "hope marketing." Our AI Autonomous Revenue Scientist analyzes, optimizes, and scales your campaigns 24/7. <strong className="text-foreground">If you don't see a 300% ROI increase, we pay you.</strong>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="gap-2 text-lg px-8 py-6 h-auto group button-premium border-none text-white">
-                {displayCtaText}
+              <Button size="lg" className="gap-2 text-lg px-8 py-6 h-auto group button-premium border-none text-white shadow-[0_0_30px_rgba(var(--primary),0.5)] hover:shadow-[0_0_50px_rgba(var(--primary),0.7)] transition-all duration-300">
+                Get My Free ROI Audit
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
 
               <Button variant="outline" size="lg" className="text-lg px-8 py-6 h-auto glass-card hover:bg-white/10 border-white/20 text-foreground">
-                {t('nav.services')}
+                See The Case Studies
               </Button>
             </div>
 
             <div className="pt-6">
-              <p className="text-sm text-muted-foreground mb-4">
-                Trusted by Fortune 500 companies worldwide
+              <p className="text-sm text-muted-foreground mb-4 font-semibold">
+                TRUSTED TO MANAGE OVER $50M IN AD SPEND BY:
               </p>
-              <div className="flex flex-wrap gap-6 items-center">
+              <div className="flex flex-wrap gap-6 items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
                 {["Microsoft", "Salesforce", "Adobe", "Oracle"].map(
                   (company, i) => (
                     <div
                       key={i}
-                      className="text-muted-foreground/70 font-semibold hover:text-primary transition-colors cursor-pointer"
+                      className="text-muted-foreground font-bold text-lg"
                     >
                       {company}
                     </div>
@@ -167,11 +165,11 @@ const HeroSection = ({
               ))}
             </div>
             <p className="text-lg font-medium mb-4 leading-relaxed">
-              "{t('hero.testimonial')}"
+              "We were skeptical at first, but ROIGPT literally saved our Q4. The ROI dashboard is the only thing I look at every morning now."
             </p>
             <div>
-              <p className="font-semibold">{t('hero.testimonial.author')}</p>
-              <p className="text-sm text-muted-foreground">CEO, TechStart</p>
+              <p className="font-semibold">Sarah Jenkins</p>
+              <p className="text-sm text-muted-foreground">CMO, TechStart</p>
             </div>
           </div>
 

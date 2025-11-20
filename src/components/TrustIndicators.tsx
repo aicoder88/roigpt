@@ -38,10 +38,10 @@ const certifications = [
 ];
 
 const stats = [
-    { value: '250+', label: 'Enterprise Clients' },
-    { value: '99.9%', label: 'Uptime SLA' },
-    { value: '$127M', label: 'Revenue Generated' },
-    { value: '50+', label: 'Countries' },
+    { value: '250+', label: 'Active Enterprise Partners' },
+    { value: '99.9%', label: 'Uptime Guarantee' },
+    { value: '$127M+', label: 'Client Revenue Added' },
+    { value: '340%', label: 'Avg. ROI Increase' },
 ];
 
 export function TrustIndicators() {
@@ -65,13 +65,13 @@ export function TrustIndicators() {
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-6">
                         <Shield className="h-4 w-4 text-primary" />
-                        <span className="text-sm font-medium text-primary">Trusted by Industry Leaders</span>
+                        <span className="text-sm font-medium text-primary">BATTLE-TESTED INFRASTRUCTURE</span>
                     </div>
                     <h2 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
-                        Enterprise-Grade Trust
+                        Trusted By The Giants
                     </h2>
                     <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                        Join the world's leading enterprises who trust ROIGPT for their mission-critical marketing operations.
+                        We don't just work with anyone. We power the revenue engines of the world's most demanding companies.
                     </p>
                 </div>
 

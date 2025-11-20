@@ -10,7 +10,7 @@ import ServicesShowcase from "@/components/ServicesShowcase";
 import PerformanceMetrics from "@/components/PerformanceMetrics";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLoading } from "@/contexts/LoadingContext";
-import { Sparkles, PieChart, BarChart3 } from "lucide-react";
+// import { Sparkles, PieChart, BarChart3 } from "lucide-react"; // Removed duplicate
 import { CardSkeleton, MetricSkeleton, HeroSkeleton } from "@/components/ui/loading-skeleton";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { ServiceErrorBoundary } from "@/components/ServiceErrorBoundary";
@@ -22,7 +22,8 @@ import { NewsletterForm } from "@/components/NewsletterForm";
 import { TrackedButton } from "@/components/ui/tracked-components";
 import { FloatingOrb, GridPattern, SectionDivider } from "@/components/VisualDecorations";
 import { AnimatedMetricsChart } from "@/components/AnimatedMetricsChart";
-import { ArrowRight } from "lucide-react";
+import { Sparkles, PieChart, BarChart3, CheckCircle, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 function HomeContent() {
   const { t } = useLanguage();
@@ -53,20 +54,42 @@ function HomeContent() {
 
       <SectionDivider />
 
-      {/* Services Showcase */}
+      {/* The "Bleeding Neck" Problem Section */}
+      <section className="w-full py-20 px-4 md:px-8 lg:px-12 relative bg-black/40">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-5xl font-bold mb-8 text-red-500 tracking-tight">
+            WARNING: You Are Burning Money Every Single Day
+          </h2>
+          <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <p>
+              Most businesses are <strong className="text-white">invisible</strong>. They spend thousands on ads, SEO, and content, only to get crickets.
+            </p>
+            <p>
+              Why? Because your website is a leaky bucket. It's slow, it's confusing, and it doesn't <em>sell</em>.
+            </p>
+            <p className="text-white font-semibold">
+              Every visitor that leaves without buying is money flushed down the toilet.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* Services Showcase (The Solution) */}
       <section id="services" className="w-full py-20 px-4 md:px-8 lg:px-12 relative">
         <FloatingOrb size="lg" color="accent" className="top-20 right-0 opacity-30" />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-6 animate-glow">
               <Sparkles className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-primary">{t('nav.services')}</span>
+              <span className="text-sm font-medium text-primary">THE SOLUTION</span>
             </div>
             <h2 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
-              {t('services.title')}
+              We Don't Just "Do Marketing."<br />We Engineer Revenue.
             </h2>
             <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-              {t('services.subtitle')}
+              Forget "brand awareness." We focus on one thing: <strong>Putting money in your bank account.</strong> Here is exactly how we do it:
             </p>
           </div>
           {isLoading ? (
@@ -83,7 +106,7 @@ function HomeContent() {
         </div>
       </section>
 
-      {/* Visual Features Showcase (New Section) */}
+      {/* Visual Features Showcase */}
       <section className="w-full py-20 px-4 md:px-8 lg:px-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5"></div>
         <GridPattern className="opacity-30" />
@@ -93,13 +116,13 @@ function HomeContent() {
             <div>
               <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-6">
                 <PieChart className="h-4 w-4 text-accent" />
-                <span className="text-sm font-medium text-accent">Advanced Analytics</span>
+                <span className="text-sm font-medium text-accent">Total Visibility</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-                Visualize Your Success
+                See The Money In Real-Time
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Our advanced analytics dashboard provides real-time insights into your campaign performance. Track every metric that matters with beautiful, interactive visualizations.
+                No more spreadsheets. No more guessing. Our dashboard shows you exactly how much profit you made today, yesterday, and this month.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -107,28 +130,28 @@ function HomeContent() {
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                     <BarChart3 className="h-5 w-5 text-primary" />
                   </div>
-                  <h3 className="font-semibold mb-2">Real-time Tracking</h3>
-                  <p className="text-sm text-muted-foreground">Monitor campaign performance as it happens.</p>
+                  <h3 className="font-semibold mb-2">Profit Tracking</h3>
+                  <p className="text-sm text-muted-foreground">Watch your bank balance grow in real-time.</p>
                 </div>
                 <div className="glass p-6 rounded-xl">
                   <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
                     <PieChart className="h-5 w-5 text-accent" />
                   </div>
-                  <h3 className="font-semibold mb-2">Deep Insights</h3>
-                  <p className="text-sm text-muted-foreground">Understand audience behavior and preferences.</p>
+                  <h3 className="font-semibold mb-2">Leak Detection</h3>
+                  <p className="text-sm text-muted-foreground">Instantly spot where you are losing customers.</p>
                 </div>
               </div>
             </div>
 
             <div className="glass-card p-8 relative">
               <FloatingOrb size="md" color="primary" className="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-20" />
-              <h3 className="text-xl font-semibold mb-6 text-center">Audience Demographics</h3>
+              <h3 className="text-xl font-semibold mb-6 text-center">Revenue Sources</h3>
               <AnimatedMetricsChart
                 data={[
-                  { label: 'Enterprise', value: 35, color: 'hsl(var(--primary))' },
-                  { label: 'SMB', value: 25, color: 'hsl(var(--accent))' },
-                  { label: 'Startup', value: 20, color: 'hsl(217, 91%, 60%)' },
-                  { label: 'Agency', value: 20, color: 'hsl(280, 100%, 70%)' },
+                  { label: 'Paid Ads', value: 45, color: 'hsl(var(--primary))' },
+                  { label: 'SEO', value: 30, color: 'hsl(var(--accent))' },
+                  { label: 'Email', value: 15, color: 'hsl(217, 91%, 60%)' },
+                  { label: 'Social', value: 10, color: 'hsl(280, 100%, 70%)' },
                 ]}
                 type="radar"
                 height={300}
@@ -166,6 +189,78 @@ function HomeContent() {
           ) : (
             <PerformanceMetrics />
           )}
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* The "Grand Slam" Offer Section */}
+      <section className="w-full py-24 px-4 md:px-8 lg:px-12 relative bg-gradient-to-b from-background to-primary/5">
+        <div className="max-w-5xl mx-auto">
+          <div className="glass-card p-8 md:p-12 border-primary/30 relative overflow-hidden">
+            <div className="absolute top-0 right-0 bg-primary text-white px-8 py-2 transform rotate-45 translate-x-10 translate-y-6 font-bold shadow-lg">
+              LIMITED SPOTS
+            </div>
+
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
+                The "Double Your ROI" Offer
+              </h2>
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+                We are so confident in our AI systems that we take all the risk.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-12">
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+                    <CheckCircle className="h-6 w-6 text-green-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Complete AI Funnel Build</h3>
+                    <p className="text-muted-foreground">We build your entire conversion engine from scratch. Copy, design, tech, analytics. Done.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+                    <CheckCircle className="h-6 w-6 text-green-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">90-Day Growth Sprint</h3>
+                    <p className="text-muted-foreground">Our team manages your ads and optimization daily for 3 full months.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+                    <CheckCircle className="h-6 w-6 text-green-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">24/7 Revenue Dashboard</h3>
+                    <p className="text-muted-foreground">Access to the "Truth" dashboard to see your profits in real-time.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="glass bg-black/40 p-8 rounded-2xl border border-white/10 text-center">
+                <h3 className="text-2xl font-bold mb-4 text-white">The Guarantee</h3>
+                <p className="text-lg text-muted-foreground mb-6">
+                  If we don't generate at least <span className="text-white font-bold">300% ROI</span> on your ad spend within 90 days...
+                </p>
+                <div className="text-3xl font-bold text-primary mb-2">WE PAY YOU</div>
+                <p className="text-sm text-muted-foreground mb-8">
+                  We will refund our entire fee AND pay for your ad spend.
+                </p>
+                <Button size="lg" className="w-full text-lg py-8 button-premium animate-glow">
+                  Claim This Offer Now
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                <p className="text-xs text-muted-foreground mt-4">
+                  *Only 3 spots available for this guarantee this month.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
