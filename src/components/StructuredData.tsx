@@ -38,8 +38,8 @@ export function StructuredData() {
       },
       {
         "@type": "Service",
-        "name": "AI Copywriting",
-        "description": "Persuasive copy that converts, written by advanced AI models",
+        "name": "Campaign Optimization",
+        "description": "Data-driven strategies that maximize your marketing ROI",
         "provider": {
           "@type": "Organization",
           "name": "ROIGPT"

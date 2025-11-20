@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { AnimatedMetricsChart, CountUp } from './AnimatedMetricsChart';
-import { TrendingUp, DollarSign, Users, Zap, Sparkles } from 'lucide-react';
+import { TrendingUp, DollarSign, Users, Zap, Sparkles, Activity } from 'lucide-react';
+import { GridPattern, FloatingOrb } from './VisualDecorations';
 
 const roiData = [
     { label: 'Jan', value: 100 },
@@ -18,6 +19,13 @@ const conversionData = [
     { label: 'Landing', value: 42, color: 'hsl(217, 91%, 60%)' },
     { label: 'Social', value: 31, color: 'hsl(var(--accent))' },
     { label: 'Ads', value: 38, color: 'hsl(280, 100%, 70%)' },
+];
+
+const channelDistribution = [
+    { label: 'Organic', value: 45, color: 'hsl(var(--primary))' },
+    { label: 'Paid', value: 25, color: 'hsl(var(--accent))' },
+    { label: 'Referral', value: 20, color: 'hsl(217, 91%, 60%)' },
+    { label: 'Direct', value: 10, color: 'hsl(280, 100%, 70%)' },
 ];
 
 const metrics = [
@@ -48,10 +56,10 @@ const metrics = [
     },
     {
         icon: Zap,
-        label: 'Time Saved',
+        label: 'Efficiency Gain',
         value: 85,
         suffix: '%',
-        description: 'On content creation',
+        description: 'Campaign optimization',
         color: 'text-yellow-500',
     },
 ];
@@ -61,15 +69,20 @@ export function EnterpriseROIDashboard() {
         <section className="w-full py-20 px-4 md:px-8 lg:px-12 relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
-            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float"></div>
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+            <div
+                className="absolute inset-0 opacity-10"
+                style={{ backgroundImage: 'url(/images/data-viz-bg.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+            />
+            <GridPattern className="opacity-30" />
+            <FloatingOrb size="lg" color="primary" className="top-0 right-0 opacity-30" />
+            <FloatingOrb size="lg" color="accent" className="bottom-0 left-0 opacity-30" delay={2} />
 
             <div className="max-w-7xl mx-auto relative">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-6">
-                        <Sparkles className="h-4 w-4 text-primary" />
-                        <span className="text-sm font-medium text-primary">Real Results</span>
+                    <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-6 animate-glow">
+                        <Activity className="h-4 w-4 text-primary" />
+                        <span className="text-sm font-medium text-primary">Real-Time Analytics</span>
                     </div>
                     <h2 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
                         Data-Driven Performance
@@ -84,9 +97,10 @@ export function EnterpriseROIDashboard() {
                     {metrics.map((metric, index) => (
                         <div
                             key={index}
-                            className="glass-card p-6 hover:scale-105 transition-all duration-300 group"
+                            className="glass-card p-6 hover:scale-105 transition-all duration-300 group relative overflow-hidden"
                             style={{ animationDelay: `${index * 100}ms` }}
                         >
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             <div className={cn(
                                 'w-12 h-12 rounded-xl flex items-center justify-center mb-4',
                                 'bg-gradient-to-br from-primary/10 to-accent/10',
@@ -113,62 +127,77 @@ export function EnterpriseROIDashboard() {
                 </div>
 
                 {/* Charts Section */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {/* ROI Growth Chart */}
-                    <div className="glass-card p-8">
-                        <div className="mb-6">
-                            <h3 className="text-2xl font-semibold mb-2 gradient-text">
-                                ROI Growth Trajectory
-                            </h3>
-                            <p className="text-muted-foreground text-sm">
-                                Average client performance over 6 months
-                            </p>
+                    <div className="glass-card p-8 lg:col-span-2">
+                        <div className="mb-6 flex justify-between items-end">
+                            <div>
+                                <h3 className="text-2xl font-semibold mb-2 gradient-text">
+                                    ROI Growth Trajectory
+                                </h3>
+                                <p className="text-muted-foreground text-sm">
+                                    Average client performance over 6 months
+                                </p>
+                            </div>
+                            <div className="hidden md:block">
+                                <div className="flex items-center gap-2 text-sm bg-green-500/10 px-3 py-1 rounded-full">
+                                    <TrendingUp className="h-4 w-4 text-green-500" />
+                                    <span className="text-green-500 font-semibold">+240% Growth</span>
+                                </div>
+                            </div>
                         </div>
                         <AnimatedMetricsChart
                             data={roiData}
                             type="area"
-                            height={280}
+                            height={300}
                             showGrid={true}
                             showLabels={true}
                         />
-                        <div className="mt-4 flex items-center gap-2 text-sm">
-                            <TrendingUp className="h-4 w-4 text-green-500" />
-                            <span className="text-green-500 font-semibold">+240%</span>
-                            <span className="text-muted-foreground">vs. traditional marketing</span>
-                        </div>
                     </div>
 
-                    {/* Conversion Rates Chart */}
-                    <div className="glass-card p-8">
-                        <div className="mb-6">
-                            <h3 className="text-2xl font-semibold mb-2 gradient-text">
-                                Channel Performance
-                            </h3>
-                            <p className="text-muted-foreground text-sm">
-                                Conversion rate improvements by channel
-                            </p>
+                    {/* Distribution Charts Column */}
+                    <div className="space-y-8">
+                        {/* Conversion Rates Chart */}
+                        <div className="glass-card p-8">
+                            <div className="mb-6">
+                                <h3 className="text-xl font-semibold mb-2 gradient-text">
+                                    Channel Performance
+                                </h3>
+                            </div>
+                            <AnimatedMetricsChart
+                                data={conversionData}
+                                type="bar"
+                                height={200}
+                                showGrid={false}
+                                showLabels={true}
+                            />
                         </div>
-                        <AnimatedMetricsChart
-                            data={conversionData}
-                            type="bar"
-                            height={280}
-                            showGrid={true}
-                            showLabels={true}
-                        />
-                        <div className="mt-4 flex items-center gap-2 text-sm">
-                            <Zap className="h-4 w-4 text-primary" />
-                            <span className="text-primary font-semibold">AI-Optimized</span>
-                            <span className="text-muted-foreground">across all channels</span>
+
+                        {/* Traffic Distribution */}
+                        <div className="glass-card p-8">
+                            <div className="mb-6">
+                                <h3 className="text-xl font-semibold mb-2 gradient-text">
+                                    Traffic Sources
+                                </h3>
+                            </div>
+                            <AnimatedMetricsChart
+                                data={channelDistribution}
+                                type="pie"
+                                height={200}
+                                showGrid={false}
+                                showLabels={true}
+                            />
                         </div>
                     </div>
                 </div>
 
                 {/* Bottom CTA */}
-                <div className="mt-12 text-center glass-card p-8">
-                    <p className="text-lg text-muted-foreground mb-4">
+                <div className="mt-12 text-center glass-card p-8 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 animate-pulse" />
+                    <p className="text-lg text-muted-foreground mb-4 relative z-10">
                         Join <span className="font-bold text-primary">250+ enterprise clients</span> achieving measurable results with AI-powered marketing
                     </p>
-                    <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground relative z-10">
                         <div className="flex items-center gap-2">
                             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                             <span>Real-time optimization</span>
@@ -187,6 +216,7 @@ export function EnterpriseROIDashboard() {
         </section>
     );
 }
+
 
 function cn(...classes: (string | undefined | null | false)[]) {
     return classes.filter(Boolean).join(' ');

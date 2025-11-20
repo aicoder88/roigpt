@@ -131,53 +131,7 @@ export function HeroSkeleton() {
   )
 }
 
-export function CopywritingExamplesSkeleton() {
-  return (
-    <div className="w-full py-16 bg-background relative">
-      <div className="container mx-auto px-4 relative">
-        <div className="flex justify-center mb-12">
-          <div className="glass-card p-2 bg-background/50">
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-2">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <ShimmerSkeleton key={i} className="h-10 w-20" />
-              ))}
-            </div>
-          </div>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="glass-card border-white/10 shadow-2xl overflow-hidden">
-              <div className="pb-6 bg-gradient-to-r from-primary/5 to-accent/5 p-6">
-                <div className="space-y-3">
-                  <ShimmerSkeleton className="h-6 w-32" />
-                  <ShimmerSkeleton className="h-8 w-3/4" />
-                  <ShimmerSkeleton className="h-4 w-full" />
-                </div>
-              </div>
-              <div className="pt-6 p-6">
-                <div className="p-6 rounded-2xl relative overflow-hidden border border-white/10">
-                  <div className="space-y-4">
-                    <ShimmerSkeleton className="h-6 w-full" />
-                    <ShimmerSkeleton className="h-6 w-5/6" />
-                    <div className="space-y-2">
-                      <ShimmerSkeleton className="h-4 w-full" />
-                      <ShimmerSkeleton className="h-4 w-4/5" />
-                      <ShimmerSkeleton className="h-4 w-3/5" />
-                    </div>
-                    <div className="flex justify-center pt-4">
-                      <ShimmerSkeleton className="h-10 w-40" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}
 
 export function FormSkeleton({ className }: { className?: string }) {
   return (

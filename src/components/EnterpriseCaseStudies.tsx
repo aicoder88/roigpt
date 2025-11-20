@@ -1,23 +1,30 @@
 'use client';
 
 import React from 'react';
-import { Star, ArrowRight, TrendingUp } from 'lucide-react';
-import { CountUp } from './AnimatedMetricsChart';
+import { Star, ArrowRight, TrendingUp, Building2, Briefcase, ShoppingBag } from 'lucide-react';
+import { CountUp, AnimatedMetricsChart } from './AnimatedMetricsChart';
+import { FloatingOrb } from './VisualDecorations';
 
 const caseStudies = [
     {
         company: 'TechCorp Global',
         industry: 'Enterprise SaaS',
-        logo: '🏢',
+        icon: Building2,
         challenge: 'Low conversion rates on landing pages and email campaigns',
-        solution: 'AI-powered copywriting and A/B testing optimization',
+        solution: 'AI-powered campaign optimization and A/B testing',
         results: [
             { label: 'ROI Increase', value: 425, suffix: '%' },
             { label: 'Conversion Rate', value: 18.5, suffix: '%' },
             { label: 'Revenue Growth', value: 3.2, prefix: '$', suffix: 'M' },
         ],
+        chartData: [
+            { label: 'Q1', value: 100 },
+            { label: 'Q2', value: 180 },
+            { label: 'Q3', value: 290 },
+            { label: 'Q4', value: 425 },
+        ],
         testimonial: {
-            quote: 'ROIGPT transformed our marketing efficiency. The AI-generated copy outperforms our best human copywriters consistently.',
+            quote: 'ROIGPT transformed our marketing efficiency. The AI-generated strategies outperform our best manual efforts consistently.',
             author: 'Sarah Chen',
             role: 'CMO, TechCorp Global',
         },
@@ -26,16 +33,22 @@ const caseStudies = [
     {
         company: 'FinanceFlow',
         industry: 'Financial Services',
-        logo: '💰',
-        challenge: 'Scaling content production while maintaining compliance',
+        icon: Briefcase,
+        challenge: 'Scaling campaign production while maintaining compliance',
         solution: 'Enterprise AI content generation with compliance guardrails',
         results: [
-            { label: 'Content Output', value: 500, suffix: '%' },
+            { label: 'Campaign Output', value: 500, suffix: '%' },
             { label: 'Cost Reduction', value: 67, suffix: '%' },
             { label: 'Lead Quality', value: 92, suffix: '%' },
         ],
+        chartData: [
+            { label: 'Q1', value: 50 },
+            { label: 'Q2', value: 120 },
+            { label: 'Q3', value: 300 },
+            { label: 'Q4', value: 500 },
+        ],
         testimonial: {
-            quote: 'We produce 5x more content at a fraction of the cost, all while maintaining strict regulatory compliance.',
+            quote: 'We launch 5x more campaigns at a fraction of the cost, all while maintaining strict regulatory compliance.',
             author: 'Michael Rodriguez',
             role: 'VP Marketing, FinanceFlow',
         },
@@ -44,13 +57,19 @@ const caseStudies = [
     {
         company: 'RetailMax',
         industry: 'E-commerce',
-        logo: '🛍️',
+        icon: ShoppingBag,
         challenge: 'Personalizing marketing at scale for 10M+ customers',
         solution: 'AI-driven personalization engine and dynamic content',
         results: [
             { label: 'Customer Engagement', value: 340, suffix: '%' },
             { label: 'Cart Abandonment', value: -45, suffix: '%' },
             { label: 'Revenue Per User', value: 156, suffix: '%' },
+        ],
+        chartData: [
+            { label: 'Q1', value: 80 },
+            { label: 'Q2', value: 150 },
+            { label: 'Q3', value: 220 },
+            { label: 'Q4', value: 340 },
         ],
         testimonial: {
             quote: 'The personalization capabilities are game-changing. Every customer gets a unique experience that drives conversions.',
@@ -65,6 +84,7 @@ export function EnterpriseCaseStudies() {
     return (
         <section className="w-full py-20 px-4 md:px-8 lg:px-12 relative">
             <div className="absolute inset-0 glass opacity-30"></div>
+            <FloatingOrb size="xl" color="secondary" className="top-1/3 left-0 opacity-20" />
 
             <div className="max-w-7xl mx-auto relative">
                 {/* Header */}
@@ -86,13 +106,17 @@ export function EnterpriseCaseStudies() {
                     {caseStudies.map((study, index) => (
                         <div
                             key={index}
-                            className="glass-card p-8 md:p-10 hover:shadow-2xl transition-all duration-500 group"
+                            className="glass-card p-8 md:p-10 hover:shadow-2xl transition-all duration-500 group relative overflow-hidden"
                         >
-                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/5 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
                                 {/* Company Info */}
                                 <div className="lg:col-span-1">
                                     <div className="flex items-center gap-4 mb-4">
-                                        <div className="text-5xl">{study.logo}</div>
+                                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                            <study.icon className="h-8 w-8 text-primary" />
+                                        </div>
                                         <div>
                                             <h3 className="text-2xl font-bold gradient-text">
                                                 {study.company}
@@ -152,26 +176,39 @@ export function EnterpriseCaseStudies() {
                                         ))}
                                     </div>
 
-                                    {/* Testimonial */}
-                                    <div className="glass bg-primary/5 p-6 rounded-xl border-l-4 border-primary">
-                                        <div className="flex gap-1 mb-3">
-                                            {Array.from({ length: 5 }).map((_, i) => (
-                                                <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                                            ))}
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        {/* Mini Chart */}
+                                        <div className="glass p-4 rounded-xl">
+                                            <h4 className="text-xs font-semibold text-muted-foreground mb-4">Growth Trend</h4>
+                                            <AnimatedMetricsChart
+                                                data={study.chartData}
+                                                type="line"
+                                                height={100}
+                                                showGrid={false}
+                                                showLabels={true}
+                                            />
                                         </div>
-                                        <p className="text-lg font-medium mb-4 leading-relaxed italic">
-                                            "{study.testimonial.quote}"
-                                        </p>
-                                        <div className="flex items-center justify-between">
-                                            <div>
-                                                <p className="font-semibold text-foreground">
-                                                    {study.testimonial.author}
-                                                </p>
-                                                <p className="text-sm text-muted-foreground">
-                                                    {study.testimonial.role}
-                                                </p>
+
+                                        {/* Testimonial */}
+                                        <div className="glass bg-primary/5 p-6 rounded-xl border-l-4 border-primary flex flex-col justify-center">
+                                            <div className="flex gap-1 mb-3">
+                                                {Array.from({ length: 5 }).map((_, i) => (
+                                                    <Star key={i} className="h-3 w-3 fill-primary text-primary" />
+                                                ))}
                                             </div>
-                                            <ArrowRight className="h-5 w-5 text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300" />
+                                            <p className="text-sm font-medium mb-4 leading-relaxed italic">
+                                                "{study.testimonial.quote}"
+                                            </p>
+                                            <div className="flex items-center justify-between">
+                                                <div>
+                                                    <p className="font-semibold text-sm text-foreground">
+                                                        {study.testimonial.author}
+                                                    </p>
+                                                    <p className="text-xs text-muted-foreground">
+                                                        {study.testimonial.role}
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -194,3 +231,4 @@ export function EnterpriseCaseStudies() {
         </section>
     );
 }
+

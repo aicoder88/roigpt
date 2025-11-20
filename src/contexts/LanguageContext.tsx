@@ -17,14 +17,14 @@ const translations = {
     'nav.examples': 'Examples',
     'nav.metrics': 'Metrics',
     'nav.contact': 'Contact',
-    
+
     // Hero Section
     'hero.title': 'AI-Powered Marketing That Delivers Real ROI',
-    'hero.subtitle': 'Transform your digital presence with cutting-edge AI solutions that boost conversions, optimize SEO, and create compelling copy that converts.',
+    'hero.subtitle': 'Transform your digital presence with cutting-edge AI solutions that boost conversions, optimize SEO, and create compelling campaigns that convert.',
     'hero.cta': 'Get Started Today',
     'hero.testimonial': '"ROIGPT increased our conversion rate by 340% in just 3 months!"',
     'hero.testimonial.author': 'Sarah Johnson, CEO of TechStart',
-    
+
     // Services
     'services.title': 'Our AI-Powered Services',
     'services.subtitle': 'Leverage cutting-edge AI technology to boost your ROI with our comprehensive suite of digital marketing services.',
@@ -34,20 +34,10 @@ const translations = {
     'services.seo.title': 'SEO Optimization',
     'services.seo.description': 'AI-driven SEO strategies that get you to the top of search results',
     'services.seo.price': 'Starting at $1,499/month',
-    'services.copywriting.title': 'AI Copywriting',
-    'services.copywriting.description': 'Persuasive copy that converts, written by advanced AI models',
-    'services.copywriting.price': 'Starting at $499/month',
-    
-    // Copywriting Examples
-    'examples.title': 'AI-Generated Copywriting',
-    'examples.subtitle': 'Experience the power of AI copywriting that emulates the styles of the world\'s most successful copywriters.',
-    'examples.hormozi': 'Hormozi Style',
-    'examples.carlton': 'Carlton Style',
-    'examples.halbert': 'Halbert Style',
-    'examples.ogilvy': 'Ogilvy Style',
-    'examples.bencivenga': 'Bencivenga Style',
-    'examples.all': 'All Styles',
-    
+    'services.campaigns.title': 'Campaign Optimization',
+    'services.campaigns.description': 'Data-driven strategies that maximize your marketing ROI',
+    'services.campaigns.price': 'Starting at $499/month',
+
     // Performance Metrics
     'metrics.title': 'Proven Results',
     'metrics.subtitle': 'Our AI-powered solutions deliver measurable improvements in ROI, page speed, and conversion rates.',
@@ -55,12 +45,12 @@ const translations = {
     'metrics.speed': 'Page Speed Score',
     'metrics.conversion': 'Conversion Rate Boost',
     'metrics.clients': 'Happy Clients',
-    
+
     // CTA Section
     'cta.title': 'Ready to Transform Your Digital Presence?',
     'cta.subtitle': 'Join the AI revolution and watch your ROI soar with our cutting-edge solutions.',
     'cta.button': 'Get Started Today',
-    
+
     // Footer
     'footer.tagline': 'AI-Powered Marketing Solutions',
     'footer.services': 'Services',
@@ -79,14 +69,14 @@ const translations = {
     'nav.examples': 'Exemples',
     'nav.metrics': 'Métriques',
     'nav.contact': 'Contact',
-    
+
     // Hero Section
     'hero.title': 'Marketing IA qui Génère un ROI Réel',
-    'hero.subtitle': 'Transformez votre présence numérique avec des solutions IA de pointe qui augmentent les conversions, optimisent le SEO et créent du contenu convaincant.',
+    'hero.subtitle': 'Transformez votre présence numérique avec des solutions IA de pointe qui augmentent les conversions, optimisent le SEO et créent des campagnes convaincantes.',
     'hero.cta': 'Commencer Aujourd\'hui',
     'hero.testimonial': '"ROIGPT a augmenté notre taux de conversion de 340% en seulement 3 mois!"',
     'hero.testimonial.author': 'Sarah Johnson, PDG de TechStart',
-    
+
     // Services
     'services.title': 'Nos Services Alimentés par l\'IA',
     'services.subtitle': 'Exploitez la technologie IA de pointe pour augmenter votre ROI avec notre suite complète de services de marketing numérique.',
@@ -96,20 +86,10 @@ const translations = {
     'services.seo.title': 'Optimisation SEO',
     'services.seo.description': 'Stratégies SEO pilotées par IA qui vous mènent au sommet des résultats de recherche',
     'services.seo.price': 'À partir de 1 499$/mois',
-    'services.copywriting.title': 'Rédaction IA',
-    'services.copywriting.description': 'Contenu persuasif qui convertit, écrit par des modèles IA avancés',
-    'services.copywriting.price': 'À partir de 499$/mois',
-    
-    // Copywriting Examples
-    'examples.title': 'Rédaction Générée par IA',
-    'examples.subtitle': 'Découvrez la puissance de la rédaction IA qui émule les styles des rédacteurs les plus performants au monde.',
-    'examples.hormozi': 'Style Hormozi',
-    'examples.carlton': 'Style Carlton',
-    'examples.halbert': 'Style Halbert',
-    'examples.ogilvy': 'Style Ogilvy',
-    'examples.bencivenga': 'Style Bencivenga',
-    'examples.all': 'Tous les styles',
-    
+    'services.campaigns.title': 'Optimisation de Campagne',
+    'services.campaigns.description': 'Stratégies basées sur les données qui maximisent votre ROI marketing',
+    'services.campaigns.price': 'À partir de 499$/mois',
+
     // Performance Metrics
     'metrics.title': 'Résultats Prouvés',
     'metrics.subtitle': 'Nos solutions alimentées par IA offrent des améliorations mesurables du ROI, de la vitesse des pages et des taux de conversion.',
@@ -117,12 +97,12 @@ const translations = {
     'metrics.speed': 'Score de Vitesse de Page',
     'metrics.conversion': 'Amélioration du Taux de Conversion',
     'metrics.clients': 'Clients Satisfaits',
-    
+
     // CTA Section
     'cta.title': 'Prêt à Transformer Votre Présence Numérique?',
     'cta.subtitle': 'Rejoignez la révolution IA et regardez votre ROI s\'envoler avec nos solutions de pointe.',
     'cta.button': 'Commencer Aujourd\'hui',
-    
+
     // Footer
     'footer.tagline': 'Solutions de Marketing Alimentées par IA',
     'footer.services': 'Services',

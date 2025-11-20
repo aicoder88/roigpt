@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     default: "ROIGPT - AI-Powered Marketing That Delivers Real ROI",
     template: "%s | ROIGPT"
   },
-  description: "Transform your digital presence with cutting-edge AI solutions that boost conversions, optimize SEO, and create compelling copy that converts. Proven 340% ROI increase.",
-  keywords: ["AI marketing", "ROI optimization", "SEO services", "AI copywriting", "NextJS websites", "conversion optimization", "digital marketing"],
+  description: "Transform your digital presence with cutting-edge AI solutions that boost conversions, optimize SEO, and create compelling campaigns that convert. Proven 340% ROI increase.",
+  keywords: ["AI marketing", "ROI optimization", "SEO services", "campaign optimization", "NextJS websites", "conversion optimization", "digital marketing"],
   authors: [{ name: "ROIGPT Team" }],
   creator: "ROIGPT",
   publisher: "ROIGPT",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "ROIGPT - AI-Powered Marketing That Delivers Real ROI",
-    description: "Transform your digital presence with cutting-edge AI solutions that boost conversions, optimize SEO, and create compelling copy that converts.",
+    description: "Transform your digital presence with cutting-edge AI solutions that boost conversions, optimize SEO, and create compelling campaigns that convert.",
     url: 'https://roigpt.com',
     siteName: 'ROIGPT',
     locale: 'en_US',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "ROIGPT - AI-Powered Marketing That Delivers Real ROI",
-    description: "Transform your digital presence with cutting-edge AI solutions that boost conversions, optimize SEO, and create compelling copy that converts.",
+    description: "Transform your digital presence with cutting-edge AI solutions that boost conversions, optimize SEO, and create compelling campaigns that convert.",
     creator: '@roigpt',
   },
   robots: {

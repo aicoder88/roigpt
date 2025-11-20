@@ -16,7 +16,7 @@ import {
   ArrowRight,
   Code,
   Search,
-  Pencil,
+  Target,
   Zap,
   BarChart3,
   MessageSquare,
@@ -43,9 +43,8 @@ const ServiceCard = ({
 }: ServiceCardProps) => {
   return (
     <Card
-      className={`w-full h-full overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl glass-card group ${
-        popular ? "border-primary/50 animate-glow" : "border-white/10"
-      }`}
+      className={`w-full h-full overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl glass-card group ${popular ? "border-primary/50 animate-glow" : "border-white/10"
+        }`}
     >
       <div className="bg-gradient-to-br from-background/50 to-background/30 backdrop-blur-xl">
         {popular && (
@@ -125,14 +124,14 @@ export default function ServicesShowcase() {
       ],
     },
     {
-      title: t('services.copywriting.title'),
-      description: t('services.copywriting.description'),
-      price: t('services.copywriting.price'),
-      icon: <Pencil className="h-6 w-6 text-primary" />,
+      title: t('services.campaigns.title'),
+      description: t('services.campaigns.description'),
+      price: t('services.campaigns.price'),
+      icon: <Target className="h-6 w-6 text-primary" />,
       benefits: [
-        "Multiple copywriting styles",
+        "Multi-channel strategy",
         "A/B testing options",
-        "Unlimited revisions",
+        "Real-time optimization",
         "Conversion-focused",
       ],
     },

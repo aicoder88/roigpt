@@ -179,7 +179,7 @@ export const timelineOptions = [
 export const serviceOptions = [
   { value: 'nextjs-development', label: 'Next.js Website Development' },
   { value: 'seo-optimization', label: 'SEO Optimization' },
-  { value: 'ai-copywriting', label: 'AI-Powered Copywriting' },
+  { value: 'campaign-optimization', label: 'Campaign Optimization' },
   { value: 'conversion-optimization', label: 'Conversion Rate Optimization' },
   { value: 'analytics-setup', label: 'Analytics & Tracking Setup' },
   { value: 'performance-optimization', label: 'Performance Optimization' },

@@ -3,8 +3,9 @@
 import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "./ui/button";
-import { ArrowRight, Star, Sparkles, Zap } from "lucide-react";
+import { ArrowRight, Star, Sparkles, Zap, BarChart3, PieChart } from "lucide-react";
 import { Badge } from "./ui/badge";
+import { FloatingOrb, GlowingParticle } from "./VisualDecorations";
 
 interface HeroSectionProps {
   title?: string;
@@ -32,9 +33,25 @@ const HeroSection = ({
           style={{ backgroundImage: 'url(/images/hero-background.png)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
-        <div className="absolute top-20 left-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }} />
+
+        {/* Animated Orbs */}
+        <FloatingOrb size="lg" color="primary" className="top-20 left-10" />
+        <FloatingOrb size="xl" color="accent" className="bottom-20 right-10" delay={2} />
+        <FloatingOrb size="lg" color="primary" className="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-50" delay={4} />
+
+        {/* Particles */}
+        {Array.from({ length: 20 }).map((_, i) => (
+          <GlowingParticle
+            key={i}
+            className="opacity-50"
+            delay={Math.random() * 5}
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              transform: `scale(${Math.random() * 0.5 + 0.5})`
+            }}
+          />
+        ))}
       </div>
 
       <div className="container mx-auto px-4 py-24 relative z-10">
@@ -86,48 +103,54 @@ const HeroSection = ({
             </div>
           </div>
 
-          <div className="flex-1">
-            <div className="relative glass-card p-8 shadow-2xl max-w-md mx-auto animate-float">
-              <div className="absolute -top-3 -right-3">
-                <Badge className="bg-primary text-primary-foreground animate-pulse">
-                  <Zap className="h-3 w-3 mr-1" />
-                  AI-Powered
+          <div className="flex-1 perspective-1000">
+            <div className="relative glass-card p-2 shadow-2xl max-w-xl mx-auto animate-float transform rotate-y-12 rotate-x-6 hover:rotate-0 transition-transform duration-700">
+              <div className="absolute -top-6 -right-6 z-20">
+                <Badge className="bg-primary text-primary-foreground animate-pulse px-4 py-2 text-lg shadow-lg">
+                  <Zap className="h-4 w-4 mr-2" />
+                  +340% ROI
                 </Badge>
               </div>
 
-              <div className="space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center animate-glow">
-                    <Sparkles className="h-5 w-5 text-white" />
+              {/* Dashboard Image */}
+              <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-inner bg-black/40 aspect-video group">
+                <img
+                  src="/images/dashboard-visual.png"
+                  alt="ROI Dashboard Interface"
+                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                />
+
+                {/* Overlay UI Elements */}
+                <div className="absolute top-4 left-4 right-4 flex justify-between items-center">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">ROIGPT Assistant</h3>
-                    <p className="text-xs text-muted-foreground flex items-center gap-1">
-                      <div className="h-2 w-2 bg-green-500 rounded-full animate-pulse"></div>
-                      Online now
-                    </p>
+                  <div className="glass px-3 py-1 rounded-full text-xs text-white/70 flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                    Live Analysis
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="glass p-4 rounded-2xl rounded-tl-sm max-w-[85%] animate-in slide-in-from-left-5 duration-500">
-                    <p className="text-sm">How can I help improve your marketing ROI today?</p>
+                {/* Floating Charts Overlay */}
+                <div className="absolute bottom-4 left-4 glass p-3 rounded-lg animate-float" style={{ animationDelay: '1s' }}>
+                  <div className="flex items-center gap-2 mb-2">
+                    <BarChart3 className="w-4 h-4 text-primary" />
+                    <span className="text-xs font-semibold">Revenue</span>
                   </div>
-
-                  <div className="glass bg-primary/10 p-4 rounded-2xl rounded-tr-sm ml-auto max-w-[85%] animate-in slide-in-from-right-5 duration-700">
-                    <p className="text-sm">I need better converting copy for my landing page.</p>
-                  </div>
-
-                  <div className="glass p-4 rounded-2xl rounded-tl-sm max-w-[85%] animate-in slide-in-from-left-5 duration-900">
-                    <p className="text-sm">I can generate high-converting copy in the style of Alex Hormozi, John Carlton, or Gary Halbert. Which would you prefer?</p>
+                  <div className="h-1 w-24 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-full bg-primary w-[75%] animate-pulse" />
                   </div>
                 </div>
 
-                <div className="flex justify-center">
+                <div className="absolute top-1/3 right-4 glass p-3 rounded-lg animate-float" style={{ animationDelay: '2.5s' }}>
+                  <div className="flex items-center gap-2 mb-2">
+                    <PieChart className="w-4 h-4 text-accent" />
+                    <span className="text-xs font-semibold">Traffic</span>
+                  </div>
                   <div className="flex gap-1">
-                    <div className="h-2 w-2 bg-primary rounded-full animate-bounce"></div>
-                    <div className="h-2 w-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="h-2 w-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="w-8 h-8 rounded-full border-4 border-accent border-t-transparent animate-spin" />
                   </div>
                 </div>
               </div>
@@ -159,7 +182,7 @@ const HeroSection = ({
               ))}
             </div>
             <p className="text-lg font-medium mb-4 leading-relaxed">
-              "The AI-generated copy reads exactly like the masters. Game changer!"
+              "The AI-driven insights completely transformed our campaign strategy. Incredible results!"
             </p>
             <div>
               <p className="font-semibold">Michael Chen</p>

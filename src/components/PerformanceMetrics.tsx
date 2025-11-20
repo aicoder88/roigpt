@@ -7,11 +7,11 @@ import { Progress } from "./ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-import { 
-  ArrowUpRight, 
-  BarChart3, 
-  Zap, 
-  TrendingUp, 
+import {
+  ArrowUpRight,
+  BarChart3,
+  Zap,
+  TrendingUp,
   Target,
   Sparkles,
   Award,
@@ -83,9 +83,9 @@ const MetricCard = ({
             </div>
           </div>
           <div className="space-y-2">
-            <Progress 
-              value={progressValue} 
-              className="h-3 bg-muted/50" 
+            <Progress
+              value={progressValue}
+              className="h-3 bg-muted/50"
             />
             <p className="text-xs text-muted-foreground">
               {Math.round(progressValue)}% of target ({target}{suffix})
@@ -129,7 +129,7 @@ const CaseStudy = ({
         </div>
         <Award className="h-8 w-8 text-primary" />
       </div>
-      
+
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-4">
           <div>
@@ -147,7 +147,7 @@ const CaseStudy = ({
             <p className="text-muted-foreground leading-relaxed">{solution}</p>
           </div>
         </div>
-        
+
         <div>
           <h4 className="font-semibold text-lg mb-4 flex items-center gap-2">
             <TrendingUp className="h-4 w-4 text-green-500" />
@@ -188,7 +188,7 @@ const PerformanceMetrics = () => {
       company: "TechGrowth Solutions",
       industry: "SaaS / B2B Technology",
       challenge: "Struggling with low conversion rates and poor organic traffic despite quality product offerings.",
-      solution: "Implemented AI-driven SEO strategy with optimized NextJS website and conversion-focused copywriting.",
+      solution: "Implemented AI-driven SEO strategy with optimized NextJS website and conversion-focused strategies.",
       results: [
         { metric: "Conversion Rate", before: 1.8, after: 5.2, unit: "%", improvement: 189 },
         { metric: "Organic Traffic", before: 5000, after: 25000, unit: "/mo", improvement: 400 },
@@ -199,7 +199,7 @@ const PerformanceMetrics = () => {
       company: "Wellness Direct",
       industry: "Health & Wellness E-commerce",
       challenge: "High bounce rates and cart abandonment due to slow site performance and unclear messaging.",
-      solution: "Rebuilt website with NextJS, implemented Hormozi-style copywriting, and optimized checkout flow.",
+      solution: "Rebuilt website with NextJS, implemented high-impact messaging, and optimized checkout flow.",
       results: [
         { metric: "Revenue", before: 45000, after: 120000, unit: "$/mo", improvement: 167 },
         { metric: "Cart Abandonment", before: 78, after: 32, unit: "%", improvement: 59 },
@@ -210,7 +210,7 @@ const PerformanceMetrics = () => {
       company: "Legal Advisors Network",
       industry: "Professional Services",
       challenge: "Difficulty generating qualified leads and high cost per acquisition for new clients.",
-      solution: "Created high-converting landing pages with Gary Halbert-inspired copy and optimized for local SEO.",
+      solution: "Created high-converting landing pages with persuasive value propositions and optimized for local SEO.",
       results: [
         { metric: "Lead Generation", before: 24, after: 87, unit: "/mo", improvement: 263 },
         { metric: "Cost per Lead", before: 175, after: 45, unit: "$", improvement: 74 },
@@ -280,19 +280,19 @@ const PerformanceMetrics = () => {
 
           <Tabs defaultValue="case1" className="w-full">
             <TabsList className="grid w-full grid-cols-3 mb-8 glass-card bg-background/50">
-              <TabsTrigger 
+              <TabsTrigger
                 value="case1"
                 className="data-[state=active]:bg-primary data-[state=active]:text-white transition-all duration-300"
               >
                 TechGrowth Solutions
               </TabsTrigger>
-              <TabsTrigger 
+              <TabsTrigger
                 value="case2"
                 className="data-[state=active]:bg-primary data-[state=active]:text-white transition-all duration-300"
               >
                 Wellness Direct
               </TabsTrigger>
-              <TabsTrigger 
+              <TabsTrigger
                 value="case3"
                 className="data-[state=active]:bg-primary data-[state=active]:text-white transition-all duration-300"
               >

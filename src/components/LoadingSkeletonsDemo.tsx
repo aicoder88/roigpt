@@ -7,7 +7,6 @@ import {
   CardSkeleton,
   MetricSkeleton,
   HeroSkeleton,
-  CopywritingExamplesSkeleton,
   FormSkeleton,
   TableSkeleton,
   NavigationSkeleton,
@@ -229,12 +228,7 @@ export function LoadingSkeletonsDemo() {
         </div>
       </div>
 
-      <div className="space-y-4">
-        <h4 className="font-semibold text-foreground">Copywriting Examples</h4>
-        <div className="border border-white/10 rounded-lg overflow-hidden max-h-96 overflow-y-auto">
-          <CopywritingExamplesSkeleton />
-        </div>
-      </div>
+
     </div>
   );
 
